@@ -3,6 +3,9 @@ module.exports = {
         title: 'ChrisBeley.com',
     },
     plugins: [
+        `gatsby-transformer-sharp`,
+        `gatsby-plugin-sharp`,
+        'gatsby-transformer-remark',
         {
             resolve: 'gatsby-plugin-typography',
             options: {
@@ -16,6 +19,12 @@ module.exports = {
                 path: `${__dirname}/pages`,
             },
         },
-        'gatsby-transformer-remark',
+        {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+                name: 'src',
+                path: `${__dirname}/src`,
+            },
+        },
     ],
 };
