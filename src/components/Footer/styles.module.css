@@ -1,0 +1,20 @@
+@value mainBrandColor, darkAccent, darkShades, lightShades, delta from '../../colors.module.css';
+
+.footer {
+    background-color: mainBrandColor;
+    padding: 8px;
+    display: flex;
+    border-top: 1px solid darkAccent;
+    font-size: 0.8rem;
+    height: auto;
+}
+
+.footer p {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.footer p:last-child {
+    text-align: right;
+}

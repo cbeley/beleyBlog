@@ -1,0 +1,6 @@
+@value lightShades, darkShades from '../../colors.module.css';
+
+body {
+    background-color: lightShades;
+    color: darkShades;
+}

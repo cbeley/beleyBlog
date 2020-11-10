@@ -1,3 +1,15 @@
+@value coolColor from '../../colors.module.css';
+
 .container {
-    margin: 3rem;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.main {
+    margin: 0 auto;
+    max-width: 60ch;
+    background-color: coolColor;
+    padding: 0 16px 0 16px;
+    flex: 1;
 }

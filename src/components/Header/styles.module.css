@@ -1,0 +1,73 @@
+@value mainBrandColor, darkAccent, darkShades, lightShades, delta from '../../colors.module.css';
+
+.header {
+    border-top: 4px solid mainBrandColor;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.inner-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 90ch;
+}
+
+.logo {
+    width: 65px;
+    border: 1px solid darkAccent;
+    border-radius: 80px;
+    margin: 16px;
+    padding: 0;
+}
+
+.headerText {
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+    padding: 0;
+    color: darkShades;
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 4px rgba(206, 135, 29, 0.5);
+}
+
+.header h2 {
+    margin: 0;
+    padding: 0;
+    color: mainBrandColor;
+    font-size: 0.7rem;
+    line-height: 1rem;
+}
+
+.header ul {
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    flex: 1;
+    text-align: right;
+}
+
+.header li {
+    display: inline-block;
+    margin: 0 16px 0 0;
+    padding: 0;
+}
+
+/* TODO: Temp for testing nav highlighting */
+.header li:first-child {
+    border-bottom: 2px solid darkAccent;
+}
+
+.header a,
+a:link,
+a:active,
+a:visited {
+    text-decoration: none;
+    background-image: none;
+    color: darkShades;
+}

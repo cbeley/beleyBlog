@@ -1,13 +1,9 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import Header from '../Header';
-import Footer from '../Footer';
 import styles from './styles.module.css';
 
-import './global.css';
-
-export default ({ children }) => {
+export default () => {
     const {
         site: {
             siteMetadata: { title },
@@ -23,10 +19,11 @@ export default ({ children }) => {
     `);
 
     return (
-        <div className={styles.container}>
-            <Header />
-            <main className={styles.main}>{children}</main>
-            <Footer />
-        </div>
+        <footer className={styles.footer}>
+            <p>Copyright &copy; Christopher Beley</p>
+            <p>
+                <a href="#">Who is this Chris guy?</a>
+            </p>
+        </footer>
     );
 };
