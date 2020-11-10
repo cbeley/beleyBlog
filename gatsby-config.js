@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
     siteMetadata: {
         title: 'ChrisBeley.com',
@@ -24,6 +26,14 @@ module.exports = {
             options: {
                 name: 'src',
                 path: `${__dirname}/src`,
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-alias-imports',
+            options: {
+                alias: {
+                    '~src': path.resolve(__dirname, 'src'),
+                },
             },
         },
     ],

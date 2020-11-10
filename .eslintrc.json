@@ -1,12 +1,21 @@
 {
-  "plugins": ["prettier"],
-  "extends": ["airbnb", "plugin:prettier/recommended"],
-  "rules": {
-    "prettier/prettier": "error",
-    "indent": ["error", 4],
-    "react/jsx-indent": "off",
-    "react/jsx-indent-props": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/prop-types": "off"
-  }
+    "plugins": ["prettier"],
+    "extends": ["airbnb", "plugin:prettier/recommended"],
+    "rules": {
+        "prettier/prettier": "error",
+        "indent": ["error", 4],
+        "react/jsx-indent": "off",
+        "react/jsx-indent-props": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/prop-types": "off"
+    },
+    "settings": {
+        "import/resolver": {
+            "eslint-import-resolver-custom-alias": {
+                "alias": {
+                    "~src": "./src"
+                }
+            }
+        }
+    }
 }

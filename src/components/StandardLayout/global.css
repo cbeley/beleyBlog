@@ -1,4 +1,4 @@
-@value lightShades, darkShades from '../../colors.module.css';
+@value lightShades, darkShades from '~src/colors.module.css';
 
 body {
     background-color: lightShades;

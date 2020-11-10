@@ -1,4 +1,4 @@
-@value mainBrandColor, darkAccent, darkShades, lightShades, delta from '../../colors.module.css';
+@value mainBrandColor, darkAccent, darkShades, lightShades, delta from '~src/colors.module.css';
 
 .header {
     border-top: 4px solid mainBrandColor;
@@ -70,4 +70,5 @@ a:visited {
     text-decoration: none;
     background-image: none;
     color: darkShades;
+    font-size: 0.8rem;
 }
