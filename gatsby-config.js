@@ -7,7 +7,21 @@ module.exports = {
     plugins: [
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
-        'gatsby-transformer-remark',
+        {
+            resolve: `gatsby-transformer-remark`,
+            options: {
+                plugins: [
+                    {
+                        resolve: `gatsby-remark-images`,
+                        options: {
+                            /* TODO: Set this appropriately. Little iffy since I use
+                            'ch', so may want to think about how best to set this. */
+                            maxWidth: 590,
+                        },
+                    },
+                ],
+            },
+        },
         {
             resolve: 'gatsby-plugin-typography',
             options: {

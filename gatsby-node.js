@@ -25,7 +25,14 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         },
     } = await graphql(`
         query {
-            allFile(filter: { sourceInstanceName: { eq: "pages" } }) {
+            allFile(
+                filter: {
+                    childMarkdownRemark: {
+                        internal: { type: { eq: "MarkdownRemark" } }
+                    }
+                    sourceInstanceName: { eq: "pages" }
+                }
+            ) {
                 edges {
                     node {
                         childMarkdownRemark {
