@@ -1,0 +1,35 @@
+.list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.list li {
+    margin: 0;
+    padding: 0;
+    width: 50%;
+}
+
+.post {
+    padding: 16px;
+}
+
+.post small {
+    margin: 0;
+    padding: 0;
+}
+
+.post h1 {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 1.2rem;
+}
+
+.readMore {
+    text-align: right;
+    display: block;
+    width: 100%;
+}

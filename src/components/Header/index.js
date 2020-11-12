@@ -32,14 +32,17 @@ export default () => {
     return (
         <header className={styles.header}>
             <div className={styles.innerWrapper}>
-                <Img
-                    className={styles.logo}
-                    fixed={logoImage.childImageSharp.fixed}
-                />
-                <div className={styles.headerText}>
+                <a className={styles.logoLink} href="/">
+                    <Img
+                        className={styles.logo}
+                        fixed={logoImage.childImageSharp.fixed}
+                    />
+                </a>
+                <a href="/" className={styles.headerText}>
                     <h1>Chris Beley</h1>
                     <h2>A blog about anything & everything.</h2>
-                </div>
+                </a>
+
                 <ul>
                     <li>
                         <a href="#">Engineering</a>
