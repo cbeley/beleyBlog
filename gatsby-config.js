@@ -3,6 +3,12 @@ const path = require('path');
 module.exports = {
     siteMetadata: {
         title: 'ChrisBeley.com',
+        categories: [
+            { name: 'Engineering', path: 'engineering' },
+            { name: 'Travel', path: 'travel' },
+            { name: 'Food', path: 'food' },
+            { name: 'Life', path: 'life' },
+        ],
     },
     plugins: [
         `gatsby-transformer-sharp`,

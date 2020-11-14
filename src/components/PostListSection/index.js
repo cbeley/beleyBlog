@@ -3,22 +3,18 @@ import { Link } from 'gatsby';
 
 import styles from './styles.module.css';
 
-export default ({ pages, sectionTitle }) => {
+export default ({ posts, sectionTitle, sectionPath }) => {
     return (
         <section>
             <h1>{sectionTitle}</h1>
 
             <ul className={styles.list}>
-                {pages.map(
+                {posts.map(
                     ({
-                        node: {
-                            childMarkdownRemark: {
-                                fields: { slug } = {},
-                                id,
-                                frontmatter: { title, date },
-                                excerpt,
-                            } = {},
-                        },
+                        fields: { slug } = {},
+                        id,
+                        frontmatter: { title, date },
+                        excerpt,
                     }) => (
                         <li key={id}>
                             <article className={styles.post}>
@@ -35,9 +31,9 @@ export default ({ pages, sectionTitle }) => {
                 )}
             </ul>
 
-            <a className={styles.readMore} href="#">
+            <Link className={styles.readMore} to={sectionPath}>
                 {`Read more ${sectionTitle} posts...`}
-            </a>
+            </Link>
         </section>
     );
 };

@@ -1,6 +1,59 @@
-const path = require('path');
+const resolvePath = require('path').resolve;
 
-const { createFilePath, createNodeField } = require(`gatsby-source-filesystem`);
+const { createFilePath } = require(`gatsby-source-filesystem`);
+
+exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
+    createTypes(`
+        type BlogCategory {
+            name: String!
+            path: String!
+            posts(limit: Int): [MarkdownRemark!]
+        }
+
+        type SiteSiteMetadata {
+            categories: [BlogCategory]
+        }
+    `);
+};
+
+exports.createResolvers = ({ createResolvers }) => {
+    createResolvers({
+        SiteSiteMetadata: {
+            categories: {
+                type: ['BlogCategory'],
+
+                async resolve({ categories }, args, context) {
+                    const allPosts = await context.nodeModel.runQuery({
+                        query: {
+                            sort: {
+                                fields: ['frontmatter.date'],
+                                order: ['DESC'],
+                            },
+                        },
+                        type: 'MarkdownRemark',
+                    });
+
+                    return categories.map((currentCategory) => ({
+                        posts: allPosts.filter(
+                            ({ frontmatter: { category } }) => {
+                                return currentCategory.name === category;
+                            }
+                        ),
+                        ...currentCategory,
+                    }));
+                },
+            },
+        },
+        BlogCategory: {
+            posts: {
+                type: ['MarkdownRemark'],
+                resolve({ posts }, { limit }) {
+                    return limit ? posts.slice(0, limit) : posts;
+                },
+            },
+        },
+    });
+};
 
 exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
     if (node.internal.type === `MarkdownRemark`) {
@@ -21,11 +74,20 @@ exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
     const {
         data: {
-            allFile: { edges },
+            posts,
+            site: { siteMetadata },
         },
     } = await graphql(`
         query {
-            allFile(
+            site {
+                siteMetadata {
+                    categories {
+                        name
+                        path
+                    }
+                }
+            }
+            posts: allFile(
                 filter: {
                     childMarkdownRemark: {
                         internal: { type: { eq: "MarkdownRemark" } }
@@ -46,7 +108,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         }
     `);
 
-    edges.forEach(
+    posts.edges.forEach(
         ({
             node: {
                 childMarkdownRemark: {
@@ -56,11 +118,21 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         }) => {
             createPage({
                 path: slug,
-                component: path.resolve('./src/templates/post.js'),
+                component: resolvePath('./src/templates/post.js'),
                 context: {
                     slug,
                 },
             });
         }
     );
+
+    siteMetadata.categories.forEach(({ name, path }) => {
+        createPage({
+            path,
+            component: resolvePath('./src/templates/category.js'),
+            context: {
+                categoryName: name,
+            },
+        });
+    });
 };
