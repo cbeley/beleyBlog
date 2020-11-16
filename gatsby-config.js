@@ -2,7 +2,11 @@ const path = require('path');
 
 module.exports = {
     siteMetadata: {
-        title: 'ChrisBeley.com',
+        title: 'Chris Beley',
+        logo: {
+            title: 'Chris Beley',
+            subTitle: 'A blog about anything & everything.',
+        },
     },
     plugins: [
         'gatsby-transformer-json',

@@ -72,60 +72,37 @@ exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
     const {
-        data: {
-            posts,
-            site: { siteMetadata },
-        },
+        data: { categories, posts },
     } = await graphql(`
         query {
-            site {
-                siteMetadata {
-                    categories {
-                        name
-                        path
-                    }
+            categories: allCategoriesJson {
+                nodes {
+                    name
+                    path
                 }
             }
-            posts: allFile(
-                filter: {
-                    childMarkdownRemark: {
-                        internal: { type: { eq: "MarkdownRemark" } }
-                    }
-                    sourceInstanceName: { eq: "pages" }
-                }
-            ) {
-                edges {
-                    node {
-                        childMarkdownRemark {
-                            fields {
-                                slug
-                            }
-                        }
+
+            posts: allMarkdownRemark {
+                nodes {
+                    fields {
+                        slug
                     }
                 }
             }
         }
     `);
 
-    posts.edges.forEach(
-        ({
-            node: {
-                childMarkdownRemark: {
-                    fields: { slug },
-                },
+    posts.nodes.forEach(({ fields: { slug } }) => {
+        createPage({
+            path: slug,
+            component: resolvePath('./src/templates/post.js'),
+            context: {
+                slug,
             },
-        }) => {
-            createPage({
-                path: slug,
-                component: resolvePath('./src/templates/post.js'),
-                context: {
-                    slug,
-                },
-            });
-        }
-    );
+        });
+    });
 
-    siteMetadata.categories.forEach(({ name, path }) => {
+    categories.nodes.forEach(({ name, path }) => {
         createPage({
             path,
             component: resolvePath('./src/templates/category.js'),

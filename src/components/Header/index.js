@@ -7,14 +7,20 @@ import styles from './styles.module.css';
 export default () => {
     const {
         site: {
-            siteMetadata: { title },
+            siteMetadata: {
+                logo: { title, subTitle },
+            },
         },
         logoImage,
+        allCategoriesJson: { nodes: categories },
     } = useStaticQuery(graphql`
         query {
             site {
                 siteMetadata {
-                    title
+                    logo {
+                        title
+                        subTitle
+                    }
                 }
             }
 
@@ -24,6 +30,13 @@ export default () => {
                     fixed(width: 65, height: 65, quality: 90) {
                         ...GatsbyImageSharpFixed
                     }
+                }
+            }
+
+            allCategoriesJson {
+                nodes {
+                    name
+                    path
                 }
             }
         }
@@ -39,23 +52,18 @@ export default () => {
                     />
                 </a>
                 <a href="/" className={styles.headerText}>
-                    <h1>Chris Beley</h1>
-                    <h2>A blog about anything & everything.</h2>
+                    <h1>{title}</h1>
+                    <h2>{subTitle}</h2>
                 </a>
 
                 <ul>
-                    <li>
-                        <a href="#">Engineering</a>
-                    </li>
-                    <li>
-                        <a href="#">Travel</a>
-                    </li>
-                    <li>
-                        <a href="#">Food</a>
-                    </li>
-                    <li>
-                        <a href="#">Life</a>
-                    </li>
+                    {categories.map(({ name, path }) => (
+                        <li>
+                            <a key={name} href={path}>
+                                {name}
+                            </a>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </header>
