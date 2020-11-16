@@ -7,12 +7,15 @@ export default ({
     data: {
         markdownRemark: {
             html,
-            frontmatter: { title },
+            frontmatter: {
+                title,
+                category: { name: categoryName },
+            },
         },
     },
 }) => {
     return (
-        <StandardLayout>
+        <StandardLayout currentCategory={categoryName}>
             <h1>{title}</h1>
             <article dangerouslySetInnerHTML={{ __html: html }} />
         </StandardLayout>
@@ -25,6 +28,9 @@ export const query = graphql`
             html
             frontmatter {
                 title
+                category {
+                    name
+                }
             }
         }
     }

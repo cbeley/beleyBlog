@@ -11,13 +11,13 @@ export default ({
     pageContext: { categoryName },
 }) => {
     return (
-        <StandardLayout>
+        <StandardLayout currentCategory={categoryName}>
             <h1>{categoryName}</h1>
             <p>This is a category page!</p>
             <PostListSection
                 posts={posts}
                 sectionTitle={categoryName}
-                sectionPath="todo"
+                sectionPath="/"
             />
         </StandardLayout>
     );

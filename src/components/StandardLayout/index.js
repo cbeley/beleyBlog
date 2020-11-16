@@ -3,9 +3,9 @@ import BaseLayout from '~src/components/BaseLayout';
 
 import styles from './styles.module.css';
 
-export default ({ children }) => {
+export default ({ children, ...props }) => {
     return (
-        <BaseLayout>
+        <BaseLayout {...props}>
             <main className={styles.main}>{children}</main>
         </BaseLayout>
     );

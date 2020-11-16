@@ -58,8 +58,7 @@
     padding: 0;
 }
 
-/* TODO: Temp for testing nav highlighting */
-.header li:first-child {
+.currentCategory {
     border-bottom: 2px solid darkAccent;
 }
 

@@ -1,10 +1,11 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
+import classNames from 'classnames';
 
 import styles from './styles.module.css';
 
-export default () => {
+export default ({ currentCategory }) => {
     const {
         site: {
             siteMetadata: {
@@ -37,6 +38,7 @@ export default () => {
                 nodes {
                     name
                     path
+                    id
                 }
             }
         }
@@ -57,11 +59,17 @@ export default () => {
                 </a>
 
                 <ul>
-                    {categories.map(({ name, path }) => (
-                        <li>
-                            <a key={name} href={path}>
+                    {categories.map(({ name, path, id }) => (
+                        <li
+                            key={id}
+                            className={classNames({
+                                [styles.currentCategory]:
+                                    name === currentCategory,
+                            })}
+                        >
+                            <Link key={name} to={path}>
                                 {name}
-                            </a>
+                            </Link>
                         </li>
                     ))}
                 </ul>

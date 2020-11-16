@@ -8,7 +8,7 @@ import styles from './styles.module.css';
 
 import './global.css';
 
-export default ({ children }) => {
+export default ({ children, currentCategory }) => {
     const {
         site: {
             siteMetadata: { title },
@@ -25,7 +25,7 @@ export default ({ children }) => {
 
     return (
         <div className={styles.container}>
-            <Header />
+            <Header currentCategory={currentCategory} />
             {children}
             <Footer />
         </div>

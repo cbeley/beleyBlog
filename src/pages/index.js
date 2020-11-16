@@ -11,8 +11,9 @@ export default ({
 }) => {
     return (
         <WideLayout>
-            {categories.map(({ name, path, posts }) => (
+            {categories.map(({ id, name, path, posts }) => (
                 <PostListSection
+                    key={id}
                     posts={posts}
                     sectionTitle={name}
                     sectionPath={path}
