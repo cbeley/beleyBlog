@@ -26,7 +26,9 @@ export default ({
 export const query = graphql`
     query($categoryName: String!) {
         allMarkdownRemark(
-            filter: { frontmatter: { category: { eq: $categoryName } } }
+            filter: {
+                frontmatter: { category: { name: { eq: $categoryName } } }
+            }
         ) {
             nodes {
                 ...postSummary

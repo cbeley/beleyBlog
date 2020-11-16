@@ -9,7 +9,9 @@ export const postSummary = graphql`
         frontmatter {
             title
             date(formatString: "MMMM D, YYYY")
-            category
+            category {
+                name
+            }
         }
     }
 `;

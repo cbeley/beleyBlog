@@ -6,9 +6,7 @@ import PostListSection from '~src/components/PostListSection';
 
 export default ({
     data: {
-        site: {
-            siteMetadata: { categories },
-        },
+        allCategoriesJson: { nodes: categories },
     },
 }) => {
     return (
@@ -26,11 +24,9 @@ export default ({
 
 export const query = graphql`
     query {
-        site {
-            siteMetadata {
-                categories {
-                    ...blogCategorySummary
-                }
+        allCategoriesJson {
+            nodes {
+                ...categorySummary
             }
         }
     }

@@ -4,51 +4,50 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     createTypes(`
-        type BlogCategory {
+        type CategoriesJson implements Node {
             name: String!
             path: String!
-            posts(limit: Int): [MarkdownRemark!]
+            posts(limit: Int): [MarkdownRemark] @link(by: "frontmatter.category.name", from: "name")
         }
 
-        type SiteSiteMetadata {
-            categories: [BlogCategory]
+        type MarkdownRemark implements Node {
+            frontmatter: Frontmatter
+        }
+
+        type Frontmatter {
+            category: CategoriesJson @link(by: "name")
         }
     `);
 };
 
 exports.createResolvers = ({ createResolvers }) => {
     createResolvers({
-        SiteSiteMetadata: {
-            categories: {
-                type: ['BlogCategory'],
-
-                async resolve({ categories }, args, context) {
-                    const allPosts = await context.nodeModel.runQuery({
-                        query: {
-                            sort: {
-                                fields: ['frontmatter.date'],
-                                order: ['DESC'],
-                            },
-                        },
-                        type: 'MarkdownRemark',
-                    });
-
-                    return categories.map((currentCategory) => ({
-                        posts: allPosts.filter(
-                            ({ frontmatter: { category } }) => {
-                                return currentCategory.name === category;
-                            }
-                        ),
-                        ...currentCategory,
-                    }));
-                },
-            },
-        },
-        BlogCategory: {
+        CategoriesJson: {
             posts: {
                 type: ['MarkdownRemark'],
-                resolve({ posts }, { limit }) {
-                    return limit ? posts.slice(0, limit) : posts;
+
+                async resolve({ name }, { limit }, context) {
+                    const allPostsInCategory =
+                        (await context.nodeModel.runQuery({
+                            query: {
+                                sort: {
+                                    fields: ['frontmatter.date'],
+                                    order: ['DESC'],
+                                },
+                                filter: {
+                                    frontmatter: {
+                                        category: {
+                                            name: { eq: name },
+                                        },
+                                    },
+                                },
+                            },
+                            type: 'MarkdownRemark',
+                        })) || [];
+
+                    return limit
+                        ? allPostsInCategory.slice(0, limit)
+                        : allPostsInCategory;
                 },
             },
         },
