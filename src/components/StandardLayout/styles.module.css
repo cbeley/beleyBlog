@@ -1,6 +1,7 @@
 .main {
     margin: 0 auto;
-    max-width: 60ch;
+    width: 70ch;
+    max-width: 100%;
     padding: 0 16px 0 16px;
     flex: 1;
 }
