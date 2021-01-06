@@ -10,12 +10,7 @@ export default ({ posts, sectionTitle, sectionPath }) => {
 
             <ul className={styles.list}>
                 {posts.map(
-                    ({
-                        fields: { slug } = {},
-                        id,
-                        frontmatter: { title, date },
-                        excerpt,
-                    }) => (
+                    ({ id, frontmatter: { title, date, slug }, excerpt }) => (
                         <li key={id}>
                             <article className={styles.post}>
                                 <header>

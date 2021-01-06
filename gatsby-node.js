@@ -1,6 +1,15 @@
 const resolvePath = require('path').resolve;
+const originalSlugify = require('slugify');
+const urlJoin = require('url-join');
 
-const { createFilePath } = require(`gatsby-source-filesystem`);
+const slugify = (...args) => {
+    return originalSlugify.apply(undefined, [
+        ...args,
+        {
+            lower: true,
+        },
+    ]);
+};
 
 exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     createTypes(`
@@ -16,12 +25,33 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
 
         type Frontmatter {
             category: CategoriesJson @link(by: "name")
+            slug: String!
         }
     `);
 };
 
 exports.createResolvers = ({ createResolvers }) => {
     createResolvers({
+        Frontmatter: {
+            slug: {
+                async resolve({ title, category }, args, context) {
+                    const {
+                        path: categoryPath,
+                    } = await context.nodeModel.runQuery({
+                        query: {
+                            filter: {
+                                name: { eq: category },
+                            },
+                        },
+                        type: 'CategoriesJson',
+                        firstOnly: true,
+                    });
+
+                    return urlJoin(categoryPath, slugify(title));
+                },
+            },
+        },
+
         CategoriesJson: {
             posts: {
                 type: ['MarkdownRemark'],
@@ -54,22 +84,6 @@ exports.createResolvers = ({ createResolvers }) => {
     });
 };
 
-exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
-    if (node.internal.type === `MarkdownRemark`) {
-        const parentNode = getNode(node.parent);
-
-        if (parentNode.sourceInstanceName === 'pages') {
-            const slug = createFilePath({ node, getNode, basePath: 'pages' });
-
-            createNodeField({
-                node,
-                name: 'slug',
-                value: slug,
-            });
-        }
-    }
-};
-
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
     const {
         data: { categories, posts },
@@ -84,7 +98,12 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 
             posts: allMarkdownRemark {
                 nodes {
-                    fields {
+                    id
+                    frontmatter {
+                        category {
+                            path
+                        }
+                        title
                         slug
                     }
                 }
@@ -92,12 +111,15 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         }
     `);
 
-    posts.nodes.forEach(({ fields: { slug } }) => {
+    console.log('in create pages: ');
+    console.log(JSON.stringify(posts, null, 2));
+
+    posts.nodes.forEach(({ frontmatter: { slug }, id }) => {
         createPage({
             path: slug,
             component: resolvePath('./src/templates/post.js'),
             context: {
-                slug,
+                id,
             },
         });
     });
