@@ -7,7 +7,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
         type CategoriesJson implements Node {
             name: String!
             path: String!
-            posts(limit: Int): [MarkdownRemark] @link(by: "frontmatter.category.name", from: "name")
+            posts(limit: Int): [MarkdownRemark]
         }
 
         type MarkdownRemark implements Node {
