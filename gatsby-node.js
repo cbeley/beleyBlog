@@ -7,6 +7,7 @@ const slugify = (...args) => {
         ...args,
         {
             lower: true,
+            locale: 'en',
         },
     ]);
 };
@@ -110,9 +111,6 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
             }
         }
     `);
-
-    console.log('in create pages: ');
-    console.log(JSON.stringify(posts, null, 2));
 
     posts.nodes.forEach(({ frontmatter: { slug }, id }) => {
         createPage({
