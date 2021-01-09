@@ -6,7 +6,7 @@ import PostListSection from '~src/components/PostListSection';
 
 export default ({
     data: {
-        allMarkdownRemark: { nodes: posts },
+        allMdx: { nodes: posts },
     },
     pageContext: { categoryName },
 }) => {
@@ -25,7 +25,7 @@ export default ({
 
 export const query = graphql`
     query($categoryName: String!) {
-        allMarkdownRemark(
+        allMdx(
             filter: {
                 frontmatter: { category: { name: { eq: $categoryName } } }
             }

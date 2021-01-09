@@ -1,12 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import StandardLayout from '~src/components/StandardLayout';
 
 export default ({
     data: {
-        markdownRemark: {
-            html,
+        mdx: {
+            body,
             frontmatter: {
                 title,
                 category: { name: categoryName },
@@ -17,15 +18,17 @@ export default ({
     return (
         <StandardLayout currentCategory={categoryName}>
             <h1>{title}</h1>
-            <article dangerouslySetInnerHTML={{ __html: html }} />
+            <article>
+                <MDXRenderer>{body}</MDXRenderer>
+            </article>
         </StandardLayout>
     );
 };
 
 export const query = graphql`
     query($id: String!) {
-        markdownRemark(id: { eq: $id }) {
-            html
+        mdx(id: { eq: $id }) {
+            body
             frontmatter {
                 title
                 category {

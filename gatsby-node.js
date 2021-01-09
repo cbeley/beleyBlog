@@ -17,10 +17,10 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
         type CategoriesJson implements Node {
             name: String!
             path: String!
-            posts(limit: Int): [MarkdownRemark]
+            posts(limit: Int): [Mdx]
         }
 
-        type MarkdownRemark implements Node {
+        type Mdx implements Node {
             frontmatter: Frontmatter
         }
 
@@ -55,7 +55,7 @@ exports.createResolvers = ({ createResolvers }) => {
 
         CategoriesJson: {
             posts: {
-                type: ['MarkdownRemark'],
+                type: ['Mdx'],
 
                 async resolve({ name }, { limit }, context) {
                     const allPostsInCategory =
@@ -73,7 +73,7 @@ exports.createResolvers = ({ createResolvers }) => {
                                     },
                                 },
                             },
-                            type: 'MarkdownRemark',
+                            type: 'Mdx',
                         })) || [];
 
                     return limit
@@ -97,7 +97,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                 }
             }
 
-            posts: allMarkdownRemark {
+            posts: allMdx {
                 nodes {
                     id
                     frontmatter {

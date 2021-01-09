@@ -1,9 +1,9 @@
 import { graphql } from 'gatsby';
 
 export const postSummary = graphql`
-    fragment postSummary on MarkdownRemark {
+    fragment postSummary on Mdx {
         id
-        excerpt
+        excerpt(pruneLength: 160)
         frontmatter {
             title
             slug
