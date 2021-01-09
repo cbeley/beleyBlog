@@ -1,0 +1,15 @@
+@value mainBrandColor, darkAccent from '~src/colors.module.css';
+
+.notFoundImage {
+    border: 1px solid darkAccent;
+    margin-bottom: 1rem;
+}
+
+.header {
+    text-align: center;
+}
+
+.subHeader {
+    text-align: center;
+    font-size: 0.8rem;
+}
