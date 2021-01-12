@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-import WideLayout from '~src/components/WideLayout';
+import { WideLayout } from '~src/components/Layouts';
 
 import styles from './styles.module.css';
 
