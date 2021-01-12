@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseLayout from '~src/components/BaseLayout';
+import BaseLayout from '~src/components/Layouts/Base';
 
 import styles from './styles.module.css';
 

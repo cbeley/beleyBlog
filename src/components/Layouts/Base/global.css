@@ -1,8 +1,20 @@
-@value lightShades, darkShades, mainBrandColor from '~src/colors.module.css';
+@value lightShades, darkShades, mainBrandColor, darkAccent from '~src/colors.module.css';
 
 body {
     background-color: lightShades;
     color: darkShades;
+}
+
+a,
+a:link,
+a:active,
+a:visited {
+    color: mainBrandColor;
+    text-dorecation: none;
+}
+
+a:hover {
+    color: darkAccent;
 }
 
 /**
