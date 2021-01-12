@@ -33,7 +33,6 @@
     color: darkShades;
     font-weight: 400;
     font-size: 1.5rem;
-    text-shadow: 1px 1px 4px rgba(206, 135, 29, 0.5);
 }
 
 .header h2 {
@@ -62,12 +61,16 @@
     border-bottom: 2px solid darkAccent;
 }
 
-.header a,
-a:link,
-a:active,
-a:visited {
+a.navLink,
+a:link.navLink,
+a:active.navLink,
+a:visited.navLink {
     text-decoration: none;
     background-image: none;
     color: darkShades;
     font-size: 0.8rem;
+}
+
+a:hover.navLink {
+    color: darkAccent;
 }

@@ -67,7 +67,11 @@ export default ({ currentCategory }) => {
                                     name === currentCategory,
                             })}
                         >
-                            <Link key={name} to={path}>
+                            <Link
+                                key={name}
+                                to={path}
+                                className={styles.navLink}
+                            >
                                 {name}
                             </Link>
                         </li>

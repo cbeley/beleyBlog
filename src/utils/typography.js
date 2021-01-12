@@ -21,7 +21,7 @@ const typography = new Typography({
     googleFonts: [],
     headerFontFamily: systemUIFontList,
     bodyFontFamily: systemUIFontList,
-    headerWeight: 700,
+    headerWeight: 500,
     bodyWeight: 400,
     boldWeight: 700,
     overrideStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => {

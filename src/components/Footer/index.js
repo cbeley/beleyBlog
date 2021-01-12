@@ -1,29 +1,31 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { Link } from 'gatsby';
+
+import SocialIcons from '~src/components/SocialIcons';
 
 import styles from './styles.module.css';
 
 export default () => {
-    const {
-        site: {
-            siteMetadata: { title },
-        },
-    } = useStaticQuery(graphql`
-        query {
-            site {
-                siteMetadata {
-                    title
-                }
-            }
-        }
-    `);
-
     return (
         <footer className={styles.footer}>
-            <p>Copyright &copy; Christopher Beley</p>
-            <p>
-                <a href="#">Who is this Chris guy?</a>
-            </p>
+            <div className={styles.topRow}>
+                <SocialIcons />
+                <nav className={styles.nav}>
+                    <ul>
+                        <li>
+                            <a
+                                href="mailto:chris.beley+blog@gmail.com"
+                                to="/contact"
+                            >
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <small className={styles.copyright}>
+                &copy; Christopher Beley 2021
+            </small>
         </footer>
     );
 };

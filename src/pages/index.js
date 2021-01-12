@@ -1,8 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import WideLayout from '~src/components/WideLayout';
+import { WideLayout } from '~src/components/Layouts';
 import PostListSection from '~src/components/PostListSection';
+import AboutMe from '~src/components/AboutMe';
 
 export default ({
     data: {
@@ -11,14 +12,17 @@ export default ({
 }) => {
     return (
         <WideLayout>
-            {categories.map(({ id, name, path, posts }) => (
-                <PostListSection
-                    key={id}
-                    posts={posts}
-                    sectionTitle={name}
-                    sectionPath={path}
-                />
-            ))}
+            <AboutMe />
+            {categories.map(({ id, name, path, posts }) =>
+                posts.length ? (
+                    <PostListSection
+                        key={id}
+                        posts={posts}
+                        sectionTitle={name}
+                        sectionPath={path}
+                    />
+                ) : null
+            )}
         </WideLayout>
     );
 };

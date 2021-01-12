@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-import StandardLayout from '~src/components/StandardLayout';
+import { StandardLayout } from '~src/components/Layouts';
 
 export default ({
     data: {

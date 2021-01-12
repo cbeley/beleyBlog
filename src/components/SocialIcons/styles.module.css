@@ -1,0 +1,16 @@
+.socialMediaIcons a {
+    margin-right: 16px;
+}
+
+.socialMediaIcons a:last-child {
+    margin-right: 0;
+}
+
+.icon {
+    font-size: 1.3rem;
+    color: mainBrandColor;
+}
+
+.icon:hover {
+    color: darkAccent;
+}

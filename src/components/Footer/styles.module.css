@@ -1,20 +1,35 @@
-@value mainBrandColor, darkAccent, darkShades, lightShades, delta from '../../colors.module.css';
+@value mainBrandColor, darkAccent, lightAccent, darkShades, lightShades, delta from '../../colors.module.css';
 
 .footer {
-    background-color: mainBrandColor;
-    padding: 8px;
+    background-color: darkShades;
+    padding: 32px;
     display: flex;
-    border-top: 1px solid darkAccent;
+    flex-direction: column;
     font-size: 0.8rem;
     height: auto;
-}
-
-.footer p {
-    margin: 0;
-    padding: 0;
-    width: 100%;
+    margin-top: 3.16rem;
+    color: lightShades;
 }
 
 .footer p:last-child {
     text-align: right;
+}
+
+.topRow {
+    display: flex;
+    flext-direction: column;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.nav ul {
+    list-style-type: none;
+}
+
+.nav li {
+    margin: 0 16px 0 0;
+}
+
+.copyright {
+    text-align: center;
 }
