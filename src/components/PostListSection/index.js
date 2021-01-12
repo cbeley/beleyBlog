@@ -1,34 +1,21 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
+import PostList from '~src/components/PostList';
+
 import styles from './styles.module.css';
 
 export default ({ posts, sectionTitle, sectionPath }) => {
     return (
         <section>
-            <h1>{sectionTitle}</h1>
+            <header className={styles.sectionHeader}>
+                <h1>{sectionTitle}</h1>
+                <Link className={styles.readMore} to={sectionPath}>
+                    View All
+                </Link>
+            </header>
 
-            <ul className={styles.list}>
-                {posts.map(
-                    ({ id, frontmatter: { title, date, slug }, excerpt }) => (
-                        <li key={id}>
-                            <article className={styles.post}>
-                                <header>
-                                    <small>{date}</small>
-                                    <Link to={slug}>
-                                        <h1>{title}</h1>
-                                    </Link>
-                                </header>
-                                <p>{excerpt}</p>
-                            </article>
-                        </li>
-                    )
-                )}
-            </ul>
-
-            <Link className={styles.readMore} to={sectionPath}>
-                {`Read more ${sectionTitle} posts...`}
-            </Link>
+            <PostList posts={posts} />
         </section>
     );
 };

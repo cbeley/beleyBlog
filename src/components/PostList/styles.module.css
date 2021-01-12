@@ -1,0 +1,61 @@
+@value lightAccent, darkAccent, darkShades, mainBrandColor from '../../colors.module.css';
+
+.list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.listItem {
+    margin: 0;
+    padding: 0;
+    width: 50%;
+}
+
+.onePostPerLine {
+    width: 100%;
+}
+
+@media (max-width: 800px) {
+    .listItem {
+        width: 100%;
+    }
+}
+
+a.postLinkWrapper,
+a.postLinkWrapper:visited,
+a.postLinkWrapper:active,
+a.postLinkWrapper:hover {
+    text-decoration: none;
+    color: darkShades;
+}
+
+.post {
+    padding: 16px;
+    position: relative;
+}
+
+.post:hover:before {
+    content: '';
+    background-color: darkAccent;
+    height: 100%;
+    width: 4px;
+    position: absolute;
+    left: -16px;
+}
+
+.post small {
+    margin: 0;
+    padding: 0;
+    color: mainBrandColor;
+}
+
+.post h1 {
+    margin: 0.2rem 0 1rem 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 1.2rem;
+    color: darkShades;
+}
