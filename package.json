@@ -1,7 +1,10 @@
 {
     "scripts": {
         "prettier": "prettier -w .",
-        "lint": "eslint ."
+        "lint": "eslint .",
+        "docker:build": "docker-compose build",
+        "docker:run": "docker-compose up",
+        "docker:push": "docker tag beley-blog:build docker.chrisbeley.com/main/beley-blog:latest && docker push docker.chrisbeley.com/main/beley-blog:latest"
     },
     "name": "beleyBlog",
     "version": "0.0.1",
@@ -47,5 +50,9 @@
         "typography": "^0.16.19",
         "typography-breakpoint-constants": "^0.16.19",
         "url-join": "^4.0.1"
+    },
+    "engines": {
+        "node": ">=14.15.4",
+        "yarn": "^1.22.5"
     }
 }

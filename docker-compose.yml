@@ -1,0 +1,7 @@
+version: '3'
+services:
+    beleyBlog:
+        image: beley-blog:build
+        build: .
+        ports:
+            - '8080:80'
