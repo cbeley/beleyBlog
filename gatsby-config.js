@@ -14,6 +14,7 @@ module.exports = {
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
         `gatsby-remark-images`,
+        `gatsby-remark-reading-time`,
         {
             resolve: `gatsby-plugin-mdx`,
             options: {

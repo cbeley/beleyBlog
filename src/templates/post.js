@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import { StandardLayout } from '~src/components/Layouts';
+import PostHeader from '~src/components/PostHeader';
 
 export default ({
     data: {
@@ -10,15 +11,25 @@ export default ({
             body,
             frontmatter: {
                 title,
+                subTitle,
+                date,
                 category: { name: categoryName },
+            },
+            fields: {
+                readingTime: { text: readingTimeString },
             },
         },
     },
 }) => {
     return (
         <StandardLayout currentCategory={categoryName}>
-            <h1>{title}</h1>
             <article>
+                <PostHeader
+                    title={title}
+                    subTitle={subTitle}
+                    date={date}
+                    readingTimeString={readingTimeString}
+                />
                 <MDXRenderer>{body}</MDXRenderer>
             </article>
         </StandardLayout>
@@ -31,8 +42,15 @@ export const query = graphql`
             body
             frontmatter {
                 title
+                subTitle
+                date(formatString: "MMM Do, YYYY")
                 category {
                     name
+                }
+            }
+            fields {
+                readingTime {
+                    text
                 }
             }
         }
