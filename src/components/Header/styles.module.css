@@ -3,6 +3,7 @@
 .header {
     border-top: 4px solid mainBrandColor;
     width: 100%;
+    padding: 16px;
 }
 
 .inner-wrapper {
@@ -14,12 +15,39 @@
     max-width: 90ch;
 }
 
+.header nav {
+    margin: auto;
+    flex: 1;
+    text-align: right;
+}
+
+@media (max-width: 600px) {
+    .inner-wrapper {
+        flex-wrap: wrap;
+    }
+
+    .header nav {
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    .header li:last-child {
+        margin-right: 0;
+    }
+}
+
+.header ul {
+    list-style-type: none;
+    padding: 0;
+    margin: auto;
+}
+
 .logo {
     width: 65px;
     border: 1px solid darkAccent;
     border-radius: 80px;
-    margin: 16px;
     padding: 0;
+    margin-right: 16px;
 }
 
 .headerText {
@@ -31,23 +59,15 @@
     padding: 0;
     color: darkShades;
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 1.45rem;
 }
 
 .header h2 {
     margin: 0;
     padding: 0;
     color: mainBrandColor;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     line-height: 1rem;
-}
-
-.header ul {
-    list-style-type: none;
-    margin: auto;
-    padding: 0;
-    flex: 1;
-    text-align: right;
 }
 
 .header li {

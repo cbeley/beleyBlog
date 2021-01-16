@@ -6,7 +6,7 @@ module.exports = {
         title: 'Chris Beley',
         logo: {
             title: 'Chris Beley',
-            subTitle: 'A blog about anything & everything.',
+            subTitle: 'A Bit of Everything',
         },
     },
     plugins: [

@@ -58,25 +58,27 @@ export default ({ currentCategory }) => {
                     <h2>{subTitle}</h2>
                 </a>
 
-                <ul>
-                    {categories.map(({ name, path, id }) => (
-                        <li
-                            key={id}
-                            className={classNames({
-                                [styles.currentCategory]:
-                                    name === currentCategory,
-                            })}
-                        >
-                            <Link
-                                key={name}
-                                to={path}
-                                className={styles.navLink}
+                <nav>
+                    <ul>
+                        {categories.map(({ name, path, id }) => (
+                            <li
+                                key={id}
+                                className={classNames({
+                                    [styles.currentCategory]:
+                                        name === currentCategory,
+                                })}
                             >
-                                {name}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+                                <Link
+                                    key={name}
+                                    to={path}
+                                    className={styles.navLink}
+                                >
+                                    {name}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
             </div>
         </header>
     );
