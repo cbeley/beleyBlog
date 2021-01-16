@@ -12,4 +12,5 @@ RUN yarn gatsby build
 
 FROM nginx:latest
 
-COPY --from=builder /build/public /usr/share/nginx/html
+COPY --from=builder /build/public /public
+COPY nginx.conf /etc/nginx/nginx.conf
