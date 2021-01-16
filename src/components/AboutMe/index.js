@@ -14,7 +14,7 @@ export default () => {
             ) {
                 childImageSharp {
                     id
-                    fluid(maxWidth: 900, quality: 90) {
+                    fluid(maxWidth: 900, quality: 80) {
                         ...GatsbyImageSharpFluid
                     }
                 }
