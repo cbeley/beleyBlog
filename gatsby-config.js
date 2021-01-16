@@ -1,4 +1,5 @@
 const path = require('path');
+const remarkUnwrapImages = require('remark-unwrap-images');
 
 module.exports = {
     siteMetadata: {
@@ -12,17 +13,20 @@ module.exports = {
         'gatsby-transformer-json',
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
+        `gatsby-remark-images`,
         {
             resolve: `gatsby-plugin-mdx`,
             options: {
                 extensions: ['.md', '.mdx'],
+                remarkPlugins: [remarkUnwrapImages],
                 gatsbyRemarkPlugins: [
                     {
                         resolve: `gatsby-remark-images`,
                         options: {
                             /* TODO: Set this appropriately. Little iffy since I use
                             'ch', so may want to think about how best to set this. */
-                            maxWidth: 590,
+                            maxWidth: 683,
+                            showCaptions: true,
                         },
                     },
                     {

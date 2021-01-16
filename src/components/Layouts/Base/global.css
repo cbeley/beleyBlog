@@ -17,6 +17,12 @@ a:hover {
     color: darkAccent;
 }
 
+figcaption {
+    text-align: center;
+    font-size: 0.8rem;
+    padding-top: 0.7rem;
+}
+
 /**
  * Prism highlight CSS for line highlighting.
  *

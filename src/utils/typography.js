@@ -16,7 +16,7 @@ const systemUIFontList = [
 
 const typography = new Typography({
     title: 'Ocean Beach',
-    baseFontSize: '19px',
+    baseFontSize: '20px',
     baseLineHeight: 1.58,
     googleFonts: [],
     headerFontFamily: systemUIFontList,
