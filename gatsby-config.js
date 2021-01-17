@@ -19,6 +19,20 @@ module.exports = {
         `gatsby-remark-reading-time`,
         'gatsby-plugin-sitemap',
         {
+            resolve: `gatsby-plugin-google-gtag`,
+            options: {
+                trackingIds: ['G-7G3V9DH0YV'],
+                gtagConfig: {
+                    anonymize_ip: true,
+                    cookie_expires: 0,
+                },
+                pluginConfig: {
+                    head: false,
+                    respectDNT: true,
+                },
+            },
+        },
+        {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
                 env: {
