@@ -8,13 +8,29 @@ module.exports = {
             title: 'Chris Beley',
             subTitle: 'A Bit of Everything',
         },
+        siteUrl: 'https://chrisbeley.com',
     },
     plugins: [
         'gatsby-transformer-json',
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
         `gatsby-remark-images`,
+        'gatsby-plugin-react-helmet',
         `gatsby-remark-reading-time`,
+        'gatsby-plugin-sitemap',
+        {
+            resolve: 'gatsby-plugin-robots-txt',
+            options: {
+                env: {
+                    development: {
+                        policy: [{ userAgent: '*', disallow: '/' }],
+                    },
+                    production: {
+                        policy: [{ userAgent: '*', allow: '/' }],
+                    },
+                },
+            },
+        },
         {
             resolve: `gatsby-plugin-mdx`,
             options: {

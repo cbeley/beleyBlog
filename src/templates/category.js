@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
+import Head from '~src/components/Head';
 import { StandardLayout } from '~src/components/Layouts';
 import PostList from '~src/components/PostList';
 
@@ -12,6 +13,7 @@ export default ({
 }) => {
     return (
         <StandardLayout currentCategory={categoryName}>
+            <Head title={categoryName} />
             <h1>{categoryName}</h1>
             <PostList posts={posts} onePostPerLine />
         </StandardLayout>
