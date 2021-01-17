@@ -11,6 +11,7 @@ export default ({
         mdx: {
             body,
             frontmatter: {
+                draft = false,
                 title,
                 subTitle,
                 date,
@@ -33,6 +34,13 @@ export default ({
                     date={date}
                     readingTimeString={readingTimeString}
                 />
+                {draft && (
+                    <p>
+                        <b>
+                            <small>This is a draft post.</small>
+                        </b>
+                    </p>
+                )}
                 <MDXRenderer>{body}</MDXRenderer>
             </article>
         </StandardLayout>
@@ -48,6 +56,7 @@ export const query = graphql`
                 subTitle
                 description
                 date(formatString: "MMM Do, YYYY")
+                draft
                 category {
                     name
                 }

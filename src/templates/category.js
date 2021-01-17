@@ -24,7 +24,10 @@ export const query = graphql`
     query($categoryName: String!) {
         allMdx(
             filter: {
-                frontmatter: { category: { name: { eq: $categoryName } } }
+                frontmatter: {
+                    category: { name: { eq: $categoryName } }
+                    draft: { eq: false }
+                }
             }
         ) {
             nodes {

@@ -27,6 +27,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
         type Frontmatter {
             category: CategoriesJson @link(by: "name")
             slug: String!
+            draft: Boolean!
         }
     `);
 };
@@ -51,6 +52,12 @@ exports.createResolvers = ({ createResolvers }) => {
                     return urlJoin(categoryPath, slugify(title));
                 },
             },
+            draft: {
+                resolve({ draft }) {
+                    if (process.env.TREAT_DRAFTS_AS_PUBLISHED) return false;
+                    return Boolean(draft);
+                },
+            },
         },
 
         CategoriesJson: {
@@ -70,6 +77,7 @@ exports.createResolvers = ({ createResolvers }) => {
                                         category: {
                                             name: { eq: name },
                                         },
+                                        draft: { eq: false },
                                     },
                                 },
                             },
@@ -106,20 +114,23 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                         }
                         title
                         slug
+                        draft
                     }
                 }
             }
         }
     `);
 
-    posts.nodes.forEach(({ frontmatter: { slug }, id }) => {
-        createPage({
-            path: slug,
-            component: resolvePath('./src/templates/post.js'),
-            context: {
-                id,
-            },
-        });
+    posts.nodes.forEach(({ frontmatter: { slug, draft }, id }) => {
+        if (process.env.BUILD_DRAFTS || !draft) {
+            createPage({
+                path: slug,
+                component: resolvePath('./src/templates/post.js'),
+                context: {
+                    id,
+                },
+            });
+        }
     });
 
     categories.nodes.forEach(({ name, path }) => {
