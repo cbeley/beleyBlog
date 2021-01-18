@@ -34,10 +34,20 @@ export default () => {
             </header>
             <SocialIcons />
             <p className={styles.introText}>
-                I&apos;m not sure what I want to put here yet. This will say a
-                few amazing things about me, because I&apos;ll have so many
-                amazing things to say. When it is done, it&apos;ll probally be
-                the most interesting thing you&apos;ve ever read in your life!
+                Welcome to my little corner of the internet where I write about
+                just about anything that interests me! Currently, I&apos;m
+                taking an extended career break from my former life as a
+                Software Engineer in San Francisco.
+            </p>
+            <p>
+                I&apos;m spending my days enjoying one of the best cities in the
+                world (San Francisco), seeking out fancy beer, hiking,
+                occasionally wandering the desert, and, for some odd reason,
+                spending way too much time writing a blog and deployment system
+                for it from scratch. When covid calms down a bit, I plan to
+                travel domestically; focusing on hiking and exploring random
+                places in the middle of nowhere. If things continue to get
+                better, I see some extended world travel in my future.
             </p>
         </article>
     );
