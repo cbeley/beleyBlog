@@ -1,7 +1,8 @@
 .readMore {
     text-align: right;
     display: block;
-    width: 100%;
+    flex-shrink: 0;
+    padding-left: 4rem;
 }
 
 .sectionHeader {
@@ -15,4 +16,5 @@
 
 .sectionHeader h1 {
     margin: 0;
+    width: 100%;
 }
