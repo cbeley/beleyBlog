@@ -1,10 +1,14 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { MDXProvider } from '@mdx-js/react';
 
 import { StandardLayout } from '~src/components/Layouts';
 import Head from '~src/components/Head';
 import PostHeader from '~src/components/PostHeader';
+import { Note } from '~src/components/InfoBoxes';
+
+const mdxComponents = { Note };
 
 export default ({
     data: {
@@ -41,7 +45,9 @@ export default ({
                         </b>
                     </p>
                 )}
-                <MDXRenderer>{body}</MDXRenderer>
+                <MDXProvider components={mdxComponents}>
+                    <MDXRenderer>{body}</MDXRenderer>
+                </MDXProvider>
             </article>
         </StandardLayout>
     );

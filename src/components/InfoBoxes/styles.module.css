@@ -1,0 +1,31 @@
+@value darkShades, lightShades, mainBrandColor from '../../colors.module.css';
+
+.noteBox {
+    background-color: darkShades;
+    color: lightShades;
+    padding: 1rem;
+    margin-bottom: 1.58rem;
+    border-left: 5px solid mainBrandColor;
+}
+
+.noteBox code {
+    background-color: inherit !important;
+}
+
+.noteBox h1 {
+    font-size: 1rem;
+    margin: 0 0 1.58rem 0;
+    padding: 0;
+    color: mainBrandColor;
+    display: flex;
+    align-items: center;
+}
+
+.infoIcon {
+    margin-right: 0.5rem;
+}
+
+.noteBox p {
+    margin: 0;
+    padding: 0;
+}
