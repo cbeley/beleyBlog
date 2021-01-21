@@ -29,6 +29,7 @@ export const query = graphql`
                     draft: { eq: false }
                 }
             }
+            sort: { fields: [frontmatter___date], order: DESC }
         ) {
             nodes {
                 ...postSummary
