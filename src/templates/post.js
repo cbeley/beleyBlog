@@ -7,8 +7,9 @@ import { StandardLayout } from '~src/components/Layouts';
 import Head from '~src/components/Head';
 import PostHeader from '~src/components/PostHeader';
 import { Note } from '~src/components/InfoBoxes';
+import ImageReference from '~src/components/ImageReference';
 
-const mdxComponents = { Note };
+const mdxComponents = { Note, ImageReference };
 
 export default ({
     data: {
