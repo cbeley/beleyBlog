@@ -9,10 +9,10 @@ export default () => {
             <a href="https://twitter.com/Chris_Beley">
                 <FaTwitter className={styles.icon} />
             </a>
-            <a href="www.linkedin.com/in/chris-beley">
+            <a href="https://www.linkedin.com/in/chris-beley">
                 <FaLinkedin className={styles.icon} />
             </a>
-            <a href="https://github.com/cbeley{">
+            <a href="https://github.com/cbeley">
                 <FaGithub className={styles.icon} />
             </a>
         </aside>
