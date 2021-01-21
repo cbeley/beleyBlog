@@ -31,7 +31,7 @@ export default ({
 
 export const query = graphql`
     query {
-        allCategoriesJson {
+        allCategoriesJson(sort: { fields: [position], order: [ASC] }) {
             nodes {
                 ...categorySummary
             }

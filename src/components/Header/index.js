@@ -34,7 +34,7 @@ export default ({ currentCategory }) => {
                 }
             }
 
-            allCategoriesJson {
+            allCategoriesJson(sort: { fields: [position], order: [ASC] }) {
                 nodes {
                     name
                     path
