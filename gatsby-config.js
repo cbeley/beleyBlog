@@ -19,6 +19,77 @@ module.exports = {
         `gatsby-remark-reading-time`,
         'gatsby-plugin-sitemap',
         {
+            resolve: `gatsby-plugin-feed`,
+            options: {
+                query: `
+                    {
+                        site {
+                            siteMetadata {
+                                siteUrl
+                            }
+                        }
+                    }
+                `,
+                feeds: [
+                    {
+                        serialize: ({
+                            query: {
+                                allMdx,
+                                site: {
+                                    siteMetadata: { siteUrl },
+                                },
+                            },
+                        }) => {
+                            return allMdx.nodes.map(
+                                ({
+                                    excerpt,
+                                    frontmatter: {
+                                        title,
+                                        date,
+                                        slug,
+                                        category,
+                                    },
+                                }) => {
+                                    return {
+                                        title,
+                                        description: excerpt,
+                                        date,
+                                        url: siteUrl + slug,
+                                        categories: [category.name],
+                                        author: 'Chris Beley',
+                                    };
+                                }
+                            );
+                        },
+                        query: `
+                          {
+                            allMdx(
+                                sort: { order: DESC, fields: [frontmatter___date] },
+                                filter: { frontmatter: { draft: { eq: false } } },
+                                limit: 20
+                            ) {
+                                nodes {
+                                    excerpt(pruneLength: 400)
+                                    frontmatter {
+                                        title
+                                        slug
+                                        date(formatString: "MMMM D, YYYY")
+                                        category {
+                                            name
+                                        }
+                                    }
+                                }
+                            }
+                          }
+                        `,
+                        output: '/rss.xml',
+                        site_url: 'https://chrisbeley.com',
+                        title: 'A Bit of Everything | Chris Beley',
+                    },
+                ],
+            },
+        },
+        {
             resolve: `gatsby-plugin-google-gtag`,
             options: {
                 trackingIds: ['G-7G3V9DH0YV'],
