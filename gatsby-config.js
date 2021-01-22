@@ -94,12 +94,12 @@ module.exports = {
             options: {
                 trackingIds: ['G-7G3V9DH0YV'],
                 gtagConfig: {
-                    anonymize_ip: true,
+                    anonymize_ip: false,
                     cookie_expires: 0,
                 },
                 pluginConfig: {
                     head: false,
-                    respectDNT: true,
+                    respectDNT: false,
                 },
             },
         },
