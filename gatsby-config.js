@@ -90,6 +90,16 @@ module.exports = {
             },
         },
         {
+            resolve: 'gatsby-plugin-matomo',
+            options: {
+                siteId: '1',
+                matomoUrl: 'https://analytics.chrisbeley.com',
+                siteUrl: 'https://chrisbeley.com',
+                requireConsent: false,
+                disableCookies: false,
+            },
+        },
+        {
             resolve: `gatsby-plugin-google-gtag`,
             options: {
                 trackingIds: ['G-7G3V9DH0YV'],
