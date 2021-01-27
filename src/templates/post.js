@@ -7,9 +7,10 @@ import { StandardLayout } from '~src/components/Layouts';
 import Head from '~src/components/Head';
 import PostHeader from '~src/components/PostHeader';
 import { Note } from '~src/components/InfoBoxes';
+import * as MDXImages from '~src/components/MDXImages';
 import ImageReference from '~src/components/ImageReference';
 
-const mdxComponents = { Note, ImageReference };
+const mdxComponents = { Note, ImageReference, ...MDXImages };
 
 export default ({
     data: {
@@ -17,6 +18,7 @@ export default ({
             body,
             frontmatter: {
                 draft = false,
+                images: imagesArray,
                 title,
                 subTitle,
                 date,
@@ -29,6 +31,11 @@ export default ({
         },
     },
 }) => {
+    const images = (imagesArray || []).reduce((accum, image) => {
+        accum[image.name] = image;
+        return accum;
+    }, {});
+
     return (
         <StandardLayout currentCategory={categoryName}>
             <Head title={title} description={description} />
@@ -47,7 +54,7 @@ export default ({
                     </p>
                 )}
                 <MDXProvider components={mdxComponents}>
-                    <MDXRenderer>{body}</MDXRenderer>
+                    <MDXRenderer images={images}>{body}</MDXRenderer>
                 </MDXProvider>
             </article>
         </StandardLayout>
@@ -59,6 +66,14 @@ export const query = graphql`
         mdx(id: { eq: $id }) {
             body
             frontmatter {
+                images {
+                    name
+                    childImageSharp {
+                        fluid(maxWidth: 1825, quality: 85) {
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
+                }
                 title
                 subTitle
                 description
