@@ -14,6 +14,9 @@ const mdxComponents = { Note, ImageReference, ...MDXImages };
 
 export default ({
     data: {
+        site: {
+            siteMetadata: { siteUrl },
+        },
         mdx: {
             body,
             frontmatter: {
@@ -21,9 +24,12 @@ export default ({
                 images: imagesArray,
                 title,
                 subTitle,
-                date,
+                formattedDate,
+                publishedDate,
                 description,
                 category: { name: categoryName },
+                largeThumbnail,
+                slug,
             },
             fields: {
                 readingTime: { text: readingTimeString },
@@ -38,12 +44,20 @@ export default ({
 
     return (
         <StandardLayout currentCategory={categoryName}>
-            <Head title={title} description={description} />
+            <Head
+                title={title}
+                description={description}
+                largeThumbnail={largeThumbnail}
+                publishedDate={publishedDate}
+                siteUrl={siteUrl}
+                path={slug}
+                isArticle
+            />
             <article>
                 <PostHeader
                     title={title}
                     subTitle={subTitle}
-                    date={date}
+                    date={formattedDate}
                     readingTimeString={readingTimeString}
                 />
                 {draft && (
@@ -63,9 +77,15 @@ export default ({
 
 export const query = graphql`
     query($id: String!) {
+        site {
+            siteMetadata {
+                siteUrl
+            }
+        }
         mdx(id: { eq: $id }) {
             body
             frontmatter {
+                slug
                 images {
                     name
                     wide: childImageSharp {
@@ -79,10 +99,33 @@ export const query = graphql`
                         }
                     }
                 }
+                largeThumbnail {
+                    twitter: childImageSharp {
+                        fixed(
+                            width: 1200
+                            height: 600
+                            quality: 85
+                            fit: COVER
+                        ) {
+                            ...GatsbyImageSharpFixed
+                        }
+                    }
+                    og: childImageSharp {
+                        fixed(
+                            width: 1200
+                            height: 630
+                            quality: 85
+                            fit: COVER
+                        ) {
+                            ...GatsbyImageSharpFixed
+                        }
+                    }
+                }
                 title
                 subTitle
                 description
-                date(formatString: "MMM Do, YYYY")
+                formattedDate: date(formatString: "MMM Do, YYYY")
+                publishedDate: date
                 draft
                 category {
                     name

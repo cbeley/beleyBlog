@@ -9,11 +9,18 @@ import AboutMe from '~src/components/AboutMe';
 export default ({
     data: {
         allCategoriesJson: { nodes: categories },
+        site: {
+            siteMetadata: { siteUrl },
+        },
     },
 }) => {
     return (
         <WideLayout>
-            <Head title="A Bit of Everything" />
+            <Head
+                siteUrl={siteUrl}
+                title="A Bit of Everything"
+                description="A blog by Chris Beley about travel, software engineering, and more."
+            />
             <AboutMe />
             {categories.map(({ id, name, path, posts }) =>
                 posts.length ? (
@@ -34,6 +41,11 @@ export const query = graphql`
         allCategoriesJson(sort: { fields: [position], order: [ASC] }) {
             nodes {
                 ...categorySummary
+            }
+        }
+        site {
+            siteMetadata {
+                siteUrl
             }
         }
     }

@@ -7,13 +7,21 @@ import PostList from '~src/components/PostList';
 
 export default ({
     data: {
+        site: {
+            siteMetadata: { siteUrl },
+        },
+        allCategoriesJson: { nodes: categoryInArray },
         allMdx: { nodes: posts },
     },
     pageContext: { categoryName },
 }) => {
     return (
         <StandardLayout currentCategory={categoryName}>
-            <Head title={categoryName} />
+            <Head
+                title={categoryName}
+                siteUrl={siteUrl}
+                path={categoryInArray[0].path}
+            />
             <h1>{categoryName}</h1>
             <PostList posts={posts} onePostPerLine />
         </StandardLayout>
@@ -22,6 +30,16 @@ export default ({
 
 export const query = graphql`
     query($categoryName: String!) {
+        site {
+            siteMetadata {
+                siteUrl
+            }
+        }
+        allCategoriesJson(filter: { name: { eq: $categoryName } }) {
+            nodes {
+                path
+            }
+        }
         allMdx(
             filter: {
                 frontmatter: {

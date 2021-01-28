@@ -1,7 +1,16 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-export default ({ title, children, description }) => {
+export default ({
+    title,
+    children,
+    description,
+    largeThumbnail,
+    isArticle,
+    publishedDate,
+    siteUrl,
+    path = '',
+}) => {
     return (
         <Helmet>
             <title>{`${title} | Chris Beley`}</title>
@@ -27,6 +36,46 @@ export default ({ title, children, description }) => {
             {description ? (
                 <meta name="description" content={description} />
             ) : null}
+            <meta
+                name="twitter:card"
+                content={largeThumbnail ? 'summary_large_image' : 'summary'}
+            />
+            <meta name="twitter:site" content="@Chris_Beley" />
+            <meta name="twitter:creator" content="@Chris_Beley" />
+            <meta name="twitter:title" content={title.substring(0, 70)} />
+            {description && (
+                <meta
+                    name="twitter:description"
+                    content={description.substring(0, 200)}
+                />
+            )}
+            {largeThumbnail && (
+                <meta
+                    name="twitter:image"
+                    content={
+                        new URL(largeThumbnail.twitter.fixed.src, siteUrl).href
+                    }
+                />
+            )}
+
+            <meta name="og:url" content={new URL(path, siteUrl).href} />
+            <meta name="og:title" content={title} />
+            {description && (
+                <meta name="og:description" content={description} />
+            )}
+            {largeThumbnail && (
+                <meta
+                    name="og:image"
+                    content={new URL(largeThumbnail.og.fixed.src, siteUrl).href}
+                />
+            )}
+
+            {isArticle && <meta name="og:type" content="article" />}
+            {isArticle && <meta name="og:author" content="Chris Beley" />}
+            {isArticle && publishedDate && (
+                <meta name="og:published_time" content={publishedDate} />
+            )}
+
             {children}
         </Helmet>
     );
