@@ -58,22 +58,22 @@ export default ({
                 />
             )}
 
-            <meta name="og:url" content={new URL(path, siteUrl).href} />
-            <meta name="og:title" content={title} />
+            <meta property="og:url" content={new URL(path, siteUrl).href} />
+            <meta property="og:title" content={title} />
             {description && (
-                <meta name="og:description" content={description} />
+                <meta property="og:description" content={description} />
             )}
             {largeThumbnail && (
                 <meta
-                    name="og:image"
+                    property="og:image"
                     content={new URL(largeThumbnail.og.fixed.src, siteUrl).href}
                 />
             )}
 
-            {isArticle && <meta name="og:type" content="article" />}
-            {isArticle && <meta name="og:author" content="Chris Beley" />}
+            {isArticle && <meta property="og:type" content="article" />}
+            {isArticle && <meta property="og:author" content="Chris Beley" />}
             {isArticle && publishedDate && (
-                <meta name="og:published_time" content={publishedDate} />
+                <meta property="og:published_time" content={publishedDate} />
             )}
 
             {children}
