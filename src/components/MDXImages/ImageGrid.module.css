@@ -12,7 +12,7 @@
     width: grid-width;
 }
 
-@media (max-width: 890px) {
+@media (max-width: grid-width) {
     .grid {
         display: flex;
         flex-wrap: wrap;
