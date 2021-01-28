@@ -68,8 +68,13 @@ export const query = graphql`
             frontmatter {
                 images {
                     name
-                    childImageSharp {
+                    wide: childImageSharp {
                         fluid(maxWidth: 1825, quality: 85) {
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
+                    large: childImageSharp {
+                        fluid(maxWidth: 950, quality: 85) {
                             ...GatsbyImageSharpFluid
                         }
                     }

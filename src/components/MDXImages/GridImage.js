@@ -19,7 +19,7 @@ export default (className) => ({
                 [styles.rightImgMargin]: marginRight,
                 [styles.leftImgMargin]: marginLeft,
             })}
-            fluid={img.childImageSharp.fluid}
+            fluid={img.large.fluid}
         />
     );
 };
