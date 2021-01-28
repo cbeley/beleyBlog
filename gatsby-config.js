@@ -1,6 +1,8 @@
 const path = require('path');
 const remarkUnwrapImages = require('remark-unwrap-images');
 
+const siteUrl = 'https://chrisbeley.com';
+
 module.exports = {
     siteMetadata: {
         title: 'Chris Beley',
@@ -8,7 +10,7 @@ module.exports = {
             title: 'Chris Beley',
             subTitle: 'A Bit of Everything',
         },
-        siteUrl: 'https://chrisbeley.com',
+        siteUrl,
     },
     plugins: [
         'gatsby-transformer-json',
@@ -32,14 +34,7 @@ module.exports = {
                 `,
                 feeds: [
                     {
-                        serialize: ({
-                            query: {
-                                allMdx,
-                                site: {
-                                    siteMetadata: { siteUrl },
-                                },
-                            },
-                        }) => {
+                        serialize: ({ query: { allMdx } }) => {
                             return allMdx.nodes.map(
                                 ({
                                     excerpt,
@@ -54,7 +49,7 @@ module.exports = {
                                         title,
                                         description: excerpt,
                                         date,
-                                        url: siteUrl + slug,
+                                        url: new URL(slug, siteUrl).href,
                                         categories: [category.name],
                                         author: 'Chris Beley',
                                     };
@@ -83,8 +78,11 @@ module.exports = {
                           }
                         `,
                         output: '/rss.xml',
-                        site_url: 'https://chrisbeley.com',
+                        site_url: siteUrl,
+                        feed_url: new URL('/rss.xml', siteUrl).href,
                         title: 'A Bit of Everything | Chris Beley',
+                        description:
+                            'A blog by Chris Beley about travel, software engineering, and more.',
                     },
                 ],
             },
@@ -94,7 +92,7 @@ module.exports = {
             options: {
                 siteId: '1',
                 matomoUrl: 'https://analytics.chrisbeley.com',
-                siteUrl: 'https://chrisbeley.com',
+                siteUrl,
                 requireConsent: false,
                 disableCookies: false,
             },
