@@ -23,9 +23,7 @@ export default () => {
                     </ul>
                 </nav>
             </div>
-            <small className={styles.copyright}>
-                &copy; Christopher Beley 2021
-            </small>
+            <small className={styles.copyright}>&copy; Chris Beley 2021</small>
         </footer>
     );
 };
