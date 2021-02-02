@@ -23,6 +23,14 @@ figcaption {
     padding-top: 0.7rem;
 }
 
+.gatsby-code-title {
+    padding: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    background-color: #feb;
+    border-radius: 0.3em 0.3em 0 0;
+}
+
 /**
  * Prism highlight CSS for line highlighting.
  *

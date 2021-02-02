@@ -25,7 +25,6 @@
     margin-right: 0.5rem;
 }
 
-.noteBox p {
-    margin: 0;
-    padding: 0;
+.noteBox p:last-child {
+    margin-bottom: 0;
 }

@@ -126,6 +126,9 @@ module.exports = {
                         },
                     },
                     {
+                        resolve: 'gatsby-remark-code-titles',
+                    },
+                    {
                         resolve: `gatsby-remark-prismjs`,
                         options: {
                             // This is used to allow setting a language for inline code
@@ -151,7 +154,7 @@ module.exports = {
                             // Customize the prompt used in shell output
                             // Values below are default
                             prompt: {
-                                user: 'root',
+                                user: 'chris',
                                 host: 'localhost',
                                 global: false,
                             },
