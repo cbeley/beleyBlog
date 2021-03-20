@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
 import SocialIcons from '~src/components/SocialIcons';
 
@@ -17,7 +16,7 @@ export default () => {
                                 href="mailto:chris.beley+blog@gmail.com"
                                 to="/contact"
                             >
-                                Contact
+                                Contact Chris Beley
                             </a>
                         </li>
                     </ul>

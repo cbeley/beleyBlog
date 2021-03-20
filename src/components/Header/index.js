@@ -47,13 +47,13 @@ export default ({ currentCategory }) => {
     return (
         <header className={styles.header}>
             <div className={styles.innerWrapper}>
-                <a className={styles.logoLink} href="/">
+                <a title="Home" className={styles.logoLink} href="/">
                     <Img
                         className={styles.logo}
                         fixed={logoImage.childImageSharp.fixed}
                     />
                 </a>
-                <a href="/" className={styles.headerText}>
+                <a title="Home" href="/" className={styles.headerText}>
                     <h1>{title}</h1>
                     <h2>{subTitle}</h2>
                 </a>
