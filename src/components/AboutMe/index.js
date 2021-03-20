@@ -34,10 +34,10 @@ export default () => {
             </header>
             <SocialIcons />
             <p className={styles.introText}>
-                Welcome to my little corner of the internet where I write about
-                just about anything that interests me! Currently, I&apos;m
-                taking an extended career break from my former life as a
-                Software Engineer in San Francisco.
+                Welcome to Chris Beley&apos;s little corner of the internet
+                where I write about just about anything that interests me!
+                Currently, I&apos;m taking an extended career break from my
+                former life as a Software Engineer in San Francisco.
             </p>
             <p>
                 I&apos;m spending my days enjoying one of the best cities in the
