@@ -40,14 +40,10 @@ export default () => {
                 former life as a Software Engineer in San Francisco.
             </p>
             <p>
-                I&apos;m spending my days enjoying one of the best cities in the
-                world (San Francisco), seeking out fancy beer, hiking,
-                occasionally wandering the desert, and, for some odd reason,
-                spending way too much time writing a blog and deployment system
-                for it from scratch. When covid calms down a bit, I plan to
-                travel domestically; focusing on hiking and exploring random
-                places in the middle of nowhere. If things continue to get
-                better, I see some extended world travel in my future.
+                Currently, I&apos;m on the road, taking the next six months
+                until October to travel around the US. The plan is to focus more
+                on camping and hiking, especially while I&apos;m out in the
+                desert. Stay tuned for more updates!
             </p>
         </article>
     );
