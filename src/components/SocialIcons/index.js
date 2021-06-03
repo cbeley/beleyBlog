@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaTwitter, FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
 
 import styles from './styles.module.css';
 
@@ -11,6 +11,12 @@ export default () => {
                 href="https://twitter.com/Chris_Beley"
             >
                 <FaTwitter className={styles.icon} />
+            </a>
+            <a
+                title="Chris Beley's Instagram"
+                href="https://www.instagram.com/chrisbeley/"
+            >
+                <FaInstagram className={styles.icon} />
             </a>
             <a
                 title="Chris Beley's LinkedIn"
