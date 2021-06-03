@@ -116,6 +116,7 @@ module.exports = {
                 extensions: ['.md', '.mdx'],
                 remarkPlugins: [remarkUnwrapImages],
                 gatsbyRemarkPlugins: [
+                    'gatsby-remark-copy-linked-files',
                     {
                         resolve: `gatsby-remark-images`,
                         options: {
