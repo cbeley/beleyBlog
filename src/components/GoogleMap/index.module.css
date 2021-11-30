@@ -1,0 +1,9 @@
+.mapContainer {
+    left: 50%;
+    margin: 0 -50vw 1.58rem -50vw;
+    max-width: 100vw;
+    position: relative;
+    right: 50%;
+    width: 100vw;
+    height: 500px;
+}

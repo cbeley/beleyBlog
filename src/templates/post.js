@@ -9,8 +9,9 @@ import PostHeader from '~src/components/PostHeader';
 import { Note } from '~src/components/InfoBoxes';
 import * as MDXImages from '~src/components/MDXImages';
 import ImageReference from '~src/components/ImageReference';
+import GoogleMap from '~src/components/GoogleMap';
 
-const mdxComponents = { Note, ImageReference, ...MDXImages };
+const mdxComponents = { Note, ImageReference, GoogleMap, ...MDXImages };
 
 export default ({
     data: {

@@ -2,7 +2,7 @@
     "scripts": {
         "prettier": "prettier -w .",
         "lint": "eslint .",
-        "develop": "gatsby clean && gatsby develop",
+        "develop": "gatsby develop",
         "develop:drafts": "gatsby clean && BUILD_DRAFTS=true gatsby develop",
         "develop:treatDraftsAsPublished": "gatsby clean && TREAT_DRAFTS_AS_PUBLISHED=true gatsby develop",
         "docker:build": "docker-compose build",
@@ -30,6 +30,7 @@
     "dependencies": {
         "@mdx-js/mdx": "^1.6.22",
         "@mdx-js/react": "^1.6.22",
+        "@react-google-maps/api": "^2.7.0",
         "classnames": "^2.2.6",
         "compass-vertical-rhythm": "^1.4.5",
         "eslint-import-resolver-custom-alias": "^1.2.0",
