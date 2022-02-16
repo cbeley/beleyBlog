@@ -40,10 +40,21 @@ export default () => {
                 former life as a Software Engineer in San Francisco.
             </p>
             <p>
-                Currently, I&apos;m on the road, taking the next six months
-                until October to travel around the US. The plan is to focus more
-                on camping and hiking, especially while I&apos;m out in the
-                desert. Stay tuned for more updates!
+                After months of camping, hiking, and driving arround the US,
+                I&apos;m now back in San Francisco! I&apos;m currently working
+                on getting resituated and plan to begin interviewing again soon.
+                Feel free to{' '}
+                <a title="email" href="mailto:chris.beley+blog@gmail.com">
+                    get in touch
+                </a>{' '}
+                or{' '}
+                <a
+                    title="LinkedIn"
+                    href="https://www.linkedin.com/in/chris-beley"
+                >
+                    check me out on linkedIn
+                </a>{' '}
+                if you have something that may interest me!
             </p>
         </article>
     );
