@@ -8,7 +8,7 @@ A few random curiosities about how this blog is set-up:
 
 -   A custom, fully mobile-optimized design.
 -   CSS modules only.
--   [classnames](https://github.com/JedWatson/classnames)library for joining CSS classes.
+-   [classnames](https://github.com/JedWatson/classnames) library for joining CSS classes.
 -   MDX for posts.
 -   Dynamic category generation (See `gatsby-node.js`).
 -   Draft flag support (See `gatsby-node.js`).
