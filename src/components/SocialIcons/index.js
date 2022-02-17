@@ -1,5 +1,11 @@
 import React from 'react';
-import { FaTwitter, FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
+import {
+    FaTwitter,
+    FaLinkedin,
+    FaGithub,
+    FaInstagram,
+    FaFilePdf,
+} from 'react-icons/fa';
 
 import styles from './styles.module.css';
 
@@ -26,6 +32,12 @@ export default () => {
             </a>
             <a title="Chris Beley's Github" href="https://github.com/cbeley">
                 <FaGithub className={styles.icon} />
+            </a>
+            <a
+                title="Chris Beley's Resume"
+                href="/Chris_Beley_Resume_2-16-22.pdf"
+            >
+                <FaFilePdf className={styles.icon} />
             </a>
         </aside>
     );

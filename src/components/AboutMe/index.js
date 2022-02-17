@@ -54,7 +54,15 @@ export default () => {
                 >
                     check me out on linkedIn
                 </a>{' '}
-                if you have something that may interest me!
+                if you have something that may interest me. You can also
+                download a{' '}
+                <a
+                    href="/Chris_Beley_Resume_2-16-22.pdf"
+                    title="Chris Beley's Resume"
+                >
+                    pdf version of my resume
+                </a>
+                .
             </p>
         </article>
     );
