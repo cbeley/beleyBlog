@@ -36,14 +36,10 @@ export default () => {
             <p className={styles.introText}>
                 Welcome to Chris Beley&apos;s little corner of the internet
                 where I write about just about anything that interests me!
-                Currently, I&apos;m taking an extended career break from my
-                former life as a Software Engineer in San Francisco.
             </p>
             <p>
-                After months of camping, hiking, and driving arround the US,
-                I&apos;m now back in San Francisco! I&apos;m currently working
-                on getting resituated and plan to begin interviewing again soon.
-                Feel free to{' '}
+                Unfortunately, I was impacted by the layoffs at Twitter. I plan
+                to start interviewing again soon, so feel free to{' '}
                 <a title="email" href="mailto:chris.beley+blog@gmail.com">
                     get in touch
                 </a>{' '}
@@ -57,7 +53,7 @@ export default () => {
                 if you have something that may interest me. You can also
                 download a{' '}
                 <a
-                    href="/Chris_Beley_Resume_2-16-22.pdf"
+                    href="/Chris_Beley_Resume_3-3-23.pdf"
                     title="Chris Beley's Resume"
                 >
                     pdf version of my resume
