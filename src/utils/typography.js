@@ -1,6 +1,5 @@
 import Typography from 'typography';
 import { MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants';
-import verticalRhythm from 'compass-vertical-rhythm';
 
 import { darkAccent } from '~src/colors.module.css';
 
