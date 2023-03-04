@@ -16,7 +16,7 @@ const systemUIFontList = [
 
 const typography = new Typography({
     title: 'Ocean Beach',
-    baseFontSize: '20px',
+    baseFontSize: '18px',
     baseLineHeight: 1.58,
     googleFonts: [],
     headerFontFamily: systemUIFontList,
@@ -25,10 +25,6 @@ const typography = new Typography({
     bodyWeight: 400,
     boldWeight: 700,
     overrideStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => {
-        const vr = verticalRhythm({
-            baseFontSize: '17px',
-            baseLineHeight: '28px',
-        });
         return {
             a: {
                 color: darkAccent,
@@ -66,7 +62,8 @@ const typography = new Typography({
             },
             [MOBILE_MEDIA_QUERY]: {
                 html: {
-                    ...vr.establishBaseline(),
+                    baseFontSize: '17px',
+                    baseLineHeight: '28px',
                 },
                 blockquote: {
                     borderLeft: `${rhythm(3 / 16)} solid ${darkAccent}`,
