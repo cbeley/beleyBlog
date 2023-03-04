@@ -2,6 +2,7 @@
     "scripts": {
         "prettier": "prettier -w .",
         "lint": "eslint .",
+        "clean": "gatsby clean",
         "develop": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
         "develop:drafts": "NODE_OPTIONS=--openssl-legacy-provider gatsby clean && BUILD_DRAFTS=true gatsby develop",
         "develop:treatDraftsAsPublished": "NODE_OPTIONS=--openssl-legacy-provider gatsby clean && TREAT_DRAFTS_AS_PUBLISHED=true gatsby develop",
