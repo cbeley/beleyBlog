@@ -77,7 +77,7 @@ export default ({
 };
 
 export const query = graphql`
-    query($id: String!) {
+    query ($id: String!) {
         site {
             siteMetadata {
                 siteUrl

@@ -37,17 +37,16 @@ exports.createResolvers = ({ createResolvers }) => {
         Frontmatter: {
             slug: {
                 async resolve({ title, category }, args, context) {
-                    const {
-                        path: categoryPath,
-                    } = await context.nodeModel.runQuery({
-                        query: {
-                            filter: {
-                                name: { eq: category },
+                    const { path: categoryPath } =
+                        await context.nodeModel.runQuery({
+                            query: {
+                                filter: {
+                                    name: { eq: category },
+                                },
                             },
-                        },
-                        type: 'CategoriesJson',
-                        firstOnly: true,
-                    });
+                            type: 'CategoriesJson',
+                            firstOnly: true,
+                        });
 
                     return urlJoin(categoryPath, slugify(title));
                 },

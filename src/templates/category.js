@@ -29,7 +29,7 @@ export default ({
 };
 
 export const query = graphql`
-    query($categoryName: String!) {
+    query ($categoryName: String!) {
         site {
             siteMetadata {
                 siteUrl
