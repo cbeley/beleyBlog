@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './ImageWrapper.module.css';
+import * as styles from './ImageWrapper.module.css';
 
 export default (ImageComponent) =>
     ({ caption, ...props }) => {

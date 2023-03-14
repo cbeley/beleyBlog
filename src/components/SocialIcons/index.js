@@ -7,7 +7,7 @@ import {
     FaFilePdf,
 } from 'react-icons/fa';
 
-import styles from './styles.module.css';
+import * as styles from './styles.module.css';
 
 export default () => {
     return (

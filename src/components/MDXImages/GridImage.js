@@ -2,7 +2,7 @@ import React from 'react';
 import Img from 'gatsby-image';
 import classNames from 'classnames';
 
-import styles from './ImageGrid.module.css';
+import * as styles from './ImageGrid.module.css';
 
 export default (className) =>
     ({

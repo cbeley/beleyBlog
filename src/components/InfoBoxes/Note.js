@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaInfoCircle } from 'react-icons/fa';
 
-import styles from './styles.module.css';
+import * as styles from './styles.module.css';
 
 export default ({ children }) => {
     return (

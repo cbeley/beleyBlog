@@ -5,7 +5,7 @@ import GridImage from './GridImage';
 import _WideImage from './WideImage';
 import _ImageGrid from './ImageGrid';
 
-import gridImageStyles from './ImageGrid.module.css';
+import * as gridImageStyles from './ImageGrid.module.css';
 
 export const WideImage = ImageWrapper(_WideImage);
 export const ImageGrid = ImageWrapper(_ImageGrid);

@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 
 import SocialIcons from '~src/components/SocialIcons';
 
-import styles from './styles.module.css';
+import * as styles from './styles.module.css';
 
 export default () => {
     const { imageOfMe } = useStaticQuery(graphql`

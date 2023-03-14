@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import classNames from 'classnames';
 
-import styles from './styles.module.css';
+import * as styles from './styles.module.css';
 
 export default ({ posts, onePostPerLine }) => {
     return (

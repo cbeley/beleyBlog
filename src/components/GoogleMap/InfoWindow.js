@@ -7,7 +7,7 @@
 import React from 'react';
 import { InfoWindow } from '@react-google-maps/api';
 
-import styles from './infoWindow.module.css';
+import * as styles from './infoWindow.module.css';
 
 export default ({ placeName, onLoad, position }) => {
     let options;

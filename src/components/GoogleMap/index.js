@@ -8,7 +8,7 @@ import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
 import InfoWindow from './InfoWindow';
 
-import styles from './index.module.css';
+import * as styles from './index.module.css';
 
 // Default to US as the center...
 const center = {

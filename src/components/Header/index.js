@@ -3,7 +3,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import classNames from 'classnames';
 
-import styles from './styles.module.css';
+import * as styles from './styles.module.css';
 
 export default ({ currentCategory }) => {
     const {

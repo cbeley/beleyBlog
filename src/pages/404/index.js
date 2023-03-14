@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 
 import { WideLayout } from '~src/components/Layouts';
 
-import styles from './styles.module.css';
+import * as styles from './styles.module.css';
 
 export default ({ data: { notFoundImage } }) => {
     return (

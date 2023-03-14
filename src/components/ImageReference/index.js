@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './styles.module.css';
+import * as styles from './styles.module.css';
 
 /**
  * Ideally, I would make a new image component that supports

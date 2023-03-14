@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 import PostList from '~src/components/PostList';
 
-import styles from './styles.module.css';
+import * as styles from './styles.module.css';
 
 export default ({ posts, sectionTitle, sectionPath }) => {
     return (
