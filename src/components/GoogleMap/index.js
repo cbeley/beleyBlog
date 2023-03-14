@@ -80,5 +80,5 @@ export default ({ mapURL }) => {
                 placeName={selectedPlaceName}
             />
         </GoogleMap>
-    ) : undefined;
+    ) : null;
 };
