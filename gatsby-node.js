@@ -64,8 +64,8 @@ exports.createResolvers = ({ createResolvers }) => {
                 type: ['Mdx'],
 
                 async resolve({ name }, { limit }, context) {
-                    const allPostsInCategory =
-                        (await context.nodeModel.runQuery({
+                    const allPostsInCategory = await context.nodeModel.runQuery(
+                        {
                             query: {
                                 sort: {
                                     fields: ['frontmatter.date'],
@@ -81,7 +81,8 @@ exports.createResolvers = ({ createResolvers }) => {
                                 },
                             },
                             type: 'Mdx',
-                        })) || [];
+                        }
+                    );
 
                     return limit
                         ? allPostsInCategory.slice(0, limit)
