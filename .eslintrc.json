@@ -11,7 +11,14 @@
         "import/prefer-default-export": "off",
         "react/jsx-props-no-spreading": "off",
         "no-param-reassign": "off",
-        "react/jsx-one-expression-per-line": "off"
+        "react/jsx-one-expression-per-line": "off",
+        "react/function-component-definition": [
+            "error",
+            {
+                "namedComponents": "arrow-function",
+                "unnamedComponents": "arrow-function"
+            }
+        ]
     },
     "settings": {
         "import/resolver": {

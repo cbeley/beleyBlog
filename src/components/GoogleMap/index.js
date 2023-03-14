@@ -23,7 +23,6 @@ export default ({ mapURL }) => {
     });
 
     const [map, setMap] = React.useState(null);
-    const [infoWindow, setInfoWindow] = React.useState(null);
     const [selectedPlaceName, setSelectedPlaceName] = React.useState(null);
 
     const onMapLoad = React.useCallback((mapReference) => {
@@ -51,7 +50,6 @@ export default ({ mapURL }) => {
         // The bigger problem here is react-google-maps is wrapping an API that
         // is at odd-ends with react in the first place...
 
-        setInfoWindow(infoWindowReference);
         infoWindowReference.close(map);
 
         map.data.addListener('click', (event) => {
@@ -82,7 +80,5 @@ export default ({ mapURL }) => {
                 placeName={selectedPlaceName}
             />
         </GoogleMap>
-    ) : (
-        <></>
-    );
+    ) : undefined;
 };

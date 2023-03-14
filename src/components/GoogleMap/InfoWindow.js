@@ -4,7 +4,7 @@
  */
 /* global window */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { InfoWindow } from '@react-google-maps/api';
 
 import styles from './infoWindow.module.css';
@@ -12,7 +12,7 @@ import styles from './infoWindow.module.css';
 export default ({ placeName, onLoad, position }) => {
     let options;
 
-    if (typeof window !== undefined) {
+    if (typeof window !== 'undefined') {
         options = {
             pixelOffset: new window.google.maps.Size(0, -34),
         };
