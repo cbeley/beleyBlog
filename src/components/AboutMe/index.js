@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import SocialIcons from '~src/components/SocialIcons';
 
@@ -8,15 +8,17 @@ import * as styles from './styles.module.css';
 
 export default () => {
     const { imageOfMe } = useStaticQuery(graphql`
-        query {
+        {
             imageOfMe: file(
                 relativePath: { eq: "components/AboutMe/chris-beley.jpg" }
             ) {
                 childImageSharp {
                     id
-                    fluid(maxWidth: 900, quality: 80) {
-                        ...GatsbyImageSharpFluid
-                    }
+                    gatsbyImageData(
+                        width: 900
+                        quality: 80
+                        layout: CONSTRAINED
+                    )
                 }
             }
         }
@@ -27,9 +29,9 @@ export default () => {
             <header className={styles.header}>
                 <h1 className={styles.introHeaderText}>Hey, I&apos;m Chris!</h1>
 
-                <Img
+                <GatsbyImage
+                    image={imageOfMe.childImageSharp.gatsbyImageData}
                     className={styles.meImage}
-                    fluid={imageOfMe.childImageSharp.fluid}
                 />
             </header>
             <SocialIcons />

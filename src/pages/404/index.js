@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { WideLayout } from '~src/components/Layouts';
 
@@ -13,9 +13,9 @@ const NotFoundPage = ({ data: { notFoundImage } }) => {
             <h2 className={styles.subHeader}>
                 Not that I didn&apos;t keep driving down that road...
             </h2>
-            <Img
+            <GatsbyImage
+                image={notFoundImage.childImageSharp.gatsbyImageData}
                 className={styles.notFoundImage}
-                fluid={notFoundImage.childImageSharp.fluid}
             />
         </WideLayout>
     );
@@ -24,13 +24,11 @@ const NotFoundPage = ({ data: { notFoundImage } }) => {
 export default NotFoundPage;
 
 export const query = graphql`
-    query {
+    {
         notFoundImage: file(relativePath: { eq: "pages/404/404.jpg" }) {
             childImageSharp {
                 id
-                fluid(maxWidth: 990) {
-                    ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(width: 990, layout: CONSTRAINED)
             }
         }
     }

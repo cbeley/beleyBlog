@@ -92,36 +92,31 @@ export const query = graphql`
                 images {
                     name
                     wide: childImageSharp {
-                        fluid(maxWidth: 1825, quality: 85) {
-                            ...GatsbyImageSharpFluid
-                        }
+                        gatsbyImageData(quality: 85, layout: FULL_WIDTH)
                     }
                     large: childImageSharp {
-                        fluid(maxWidth: 950, quality: 85) {
-                            ...GatsbyImageSharpFluid
-                        }
+                        gatsbyImageData(quality: 85, layout: FULL_WIDTH)
                     }
                 }
                 largeThumbnail {
                     twitter: childImageSharp {
-                        fixed(
+                        gatsbyImageData(
                             width: 1200
                             height: 600
                             quality: 85
-                            fit: COVER
-                        ) {
-                            ...GatsbyImageSharpFixed
-                        }
+                            transformOptions: { fit: COVER }
+                            layout: FIXED
+                        )
                     }
+
                     og: childImageSharp {
-                        fixed(
+                        gatsbyImageData(
                             width: 1200
                             height: 630
                             quality: 85
-                            fit: COVER
-                        ) {
-                            ...GatsbyImageSharpFixed
-                        }
+                            transformOptions: { fit: COVER }
+                            layout: FIXED
+                        )
                     }
                 }
                 title

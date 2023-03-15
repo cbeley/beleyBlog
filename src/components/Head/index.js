@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { getSrc } from 'gatsby-plugin-image';
 
 export default ({
     title,
@@ -53,7 +54,7 @@ export default ({
                 <meta
                     name="twitter:image"
                     content={
-                        new URL(largeThumbnail.twitter.fixed.src, siteUrl).href
+                        new URL(getSrc(largeThumbnail.twitter), siteUrl).href
                     }
                 />
             )}
@@ -66,7 +67,7 @@ export default ({
             {largeThumbnail && (
                 <meta
                     property="og:image"
-                    content={new URL(largeThumbnail.og.fixed.src, siteUrl).href}
+                    content={new URL(getSrc(largeThumbnail.og), siteUrl).href}
                 />
             )}
 

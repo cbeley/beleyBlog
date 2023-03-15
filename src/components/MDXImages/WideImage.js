@@ -1,8 +1,13 @@
 import React from 'react';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import * as styles from './WideImage.module.css';
 
 export default ({ img }) => {
-    return <Img className={styles.wideImage} fluid={img.wide.fluid} />;
+    return (
+        <GatsbyImage
+            image={img.wide.gatsbyImageData}
+            className={styles.wideImage}
+        />
+    );
 };

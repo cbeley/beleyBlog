@@ -15,7 +15,17 @@ module.exports = {
     plugins: [
         'gatsby-transformer-json',
         `gatsby-transformer-sharp`,
-        `gatsby-plugin-sharp`,
+        {
+            resolve: `gatsby-plugin-sharp`,
+            options: {
+                defaults: {
+                    breakpoints: [
+                        750, 1080, 1366, 1500, 1920, 2160, 2732, 3840,
+                    ],
+                    placeholder: 'blurred',
+                },
+            },
+        },
         `gatsby-remark-images`,
         'gatsby-plugin-react-helmet',
         `gatsby-remark-reading-time`,
