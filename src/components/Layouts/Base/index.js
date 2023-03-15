@@ -7,7 +7,7 @@ import Header from '~src/components/Header';
 import Footer from '~src/components/Footer';
 
 import * as styles from './styles.module.css';
-import './global.css';
+import './global.module.css';
 
 export default ({ children, currentCategory }) => {
     return (
