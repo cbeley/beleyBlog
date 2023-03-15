@@ -23,7 +23,7 @@ export default () => {
     `);
 
     return (
-        <article className={styles.article}>
+        <article>
             <header className={styles.header}>
                 <h1 className={styles.introHeaderText}>Hey, I&apos;m Chris!</h1>
 
