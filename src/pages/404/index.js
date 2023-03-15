@@ -6,7 +6,7 @@ import { WideLayout } from '~src/components/Layouts';
 
 import * as styles from './styles.module.css';
 
-export default ({ data: { notFoundImage } }) => {
+const NotFoundPage = ({ data: { notFoundImage } }) => {
     return (
         <WideLayout>
             <h1 className={styles.header}>404</h1>
@@ -20,6 +20,8 @@ export default ({ data: { notFoundImage } }) => {
         </WideLayout>
     );
 };
+
+export default NotFoundPage;
 
 export const query = graphql`
     query {

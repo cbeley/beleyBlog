@@ -5,7 +5,7 @@ import Head from '~src/components/Head';
 import { StandardLayout } from '~src/components/Layouts';
 import PostList from '~src/components/PostList';
 
-export default ({
+const CategoryTemplate = ({
     data: {
         site: {
             siteMetadata: { siteUrl },
@@ -27,6 +27,8 @@ export default ({
         </StandardLayout>
     );
 };
+
+export default CategoryTemplate;
 
 export const query = graphql`
     query ($categoryName: String!) {

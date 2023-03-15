@@ -6,7 +6,7 @@ import Head from '~src/components/Head';
 import PostListSection from '~src/components/PostListSection';
 import AboutMe from '~src/components/AboutMe';
 
-export default ({
+const IndexPage = ({
     data: {
         allCategoriesJson: { nodes: categories },
         site: {
@@ -35,6 +35,8 @@ export default ({
         </WideLayout>
     );
 };
+
+export default IndexPage;
 
 export const query = graphql`
     query {

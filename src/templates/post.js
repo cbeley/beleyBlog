@@ -13,7 +13,7 @@ import GoogleMap from '~src/components/GoogleMap';
 
 const mdxComponents = { Note, ImageReference, GoogleMap, ...MDXImages };
 
-export default ({
+const PostTemplate = ({
     data: {
         site: {
             siteMetadata: { siteUrl },
@@ -75,6 +75,8 @@ export default ({
         </StandardLayout>
     );
 };
+
+export default PostTemplate;
 
 export const query = graphql`
     query ($id: String!) {
