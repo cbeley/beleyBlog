@@ -1,4 +1,4 @@
-FROM node:14.15.4-buster AS builder
+FROM node:19.7.0-buster AS builder
 
 WORKDIR /build
 ENV NODE_ENV=production

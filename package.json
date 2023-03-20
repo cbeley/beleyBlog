@@ -6,8 +6,8 @@
         "develop": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
         "develop:drafts": "NODE_OPTIONS=--openssl-legacy-provider gatsby clean && BUILD_DRAFTS=true gatsby develop",
         "develop:treatDraftsAsPublished": "NODE_OPTIONS=--openssl-legacy-provider gatsby clean && TREAT_DRAFTS_AS_PUBLISHED=true gatsby develop",
-        "docker:build": "docker-compose build",
-        "docker:run": "docker-compose up",
+        "docker:build": "docker compose build",
+        "docker:run": "docker compose up",
         "docker:push": "docker tag beley-blog:build docker.chrisbeley.com/main/beley-blog:latest && docker push docker.chrisbeley.com/main/beley-blog:latest"
     },
     "name": "beleyBlog",
@@ -37,7 +37,6 @@
         "compass-vertical-rhythm": "^1.4.5",
         "eslint-import-resolver-custom-alias": "^1.2.0",
         "gatsby": "^3.0.0",
-        "gatsby-image": "^2.4.21",
         "gatsby-plugin-alias-imports": "^1.0.5",
         "gatsby-plugin-feed": "^3.0.0",
         "gatsby-plugin-image": "^1.0.0",
@@ -69,7 +68,8 @@
         "url-join": "^4.0.1"
     },
     "engines": {
-        "node": ">=14.15.4",
+        "node": ">=19.7.0",
         "yarn": "^1.22.5"
-    }
+    },
+    "packageManager": "yarn@3.5.0"
 }
