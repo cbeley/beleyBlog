@@ -1,37 +1,22 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { StaticImage } from 'gatsby-plugin-image';
 
 import SocialIcons from '~src/components/SocialIcons';
 
 import * as styles from './styles.module.css';
 
 export default () => {
-    const { imageOfMe } = useStaticQuery(graphql`
-        {
-            imageOfMe: file(
-                relativePath: { eq: "components/AboutMe/chris-beley.jpg" }
-            ) {
-                childImageSharp {
-                    id
-                    gatsbyImageData(
-                        width: 900
-                        quality: 80
-                        layout: CONSTRAINED
-                    )
-                }
-            }
-        }
-    `);
-
     return (
         <article>
             <header className={styles.header}>
                 <h1 className={styles.introHeaderText}>Hey, I&apos;m Chris!</h1>
 
-                <GatsbyImage
-                    image={imageOfMe.childImageSharp.gatsbyImageData}
+                <StaticImage
+                    src="./chris-beley.jpg"
                     className={styles.meImage}
+                    width={900}
+                    quality={80}
+                    layout="constrained"
                 />
             </header>
             <SocialIcons />

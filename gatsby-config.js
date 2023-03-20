@@ -14,6 +14,7 @@ module.exports = {
     },
     plugins: [
         'gatsby-transformer-json',
+        'gatsby-plugin-image',
         `gatsby-transformer-sharp`,
         {
             resolve: `gatsby-plugin-sharp`,

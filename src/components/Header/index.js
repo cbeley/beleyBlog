@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { StaticImage } from 'gatsby-plugin-image';
 import classNames from 'classnames';
 
 import * as styles from './styles.module.css';
@@ -12,7 +12,6 @@ export default ({ currentCategory }) => {
                 logo: { title, subTitle },
             },
         },
-        logoImage,
         allCategoriesJson: { nodes: categories },
     } = useStaticQuery(graphql`
         {
@@ -22,17 +21,6 @@ export default ({ currentCategory }) => {
                         title
                         subTitle
                     }
-                }
-            }
-            logoImage: file(relativePath: { eq: "components/Header/me.jpg" }) {
-                childImageSharp {
-                    id
-                    gatsbyImageData(
-                        width: 65
-                        height: 65
-                        quality: 90
-                        layout: FIXED
-                    )
                 }
             }
             allCategoriesJson(sort: { fields: [position], order: [ASC] }) {
@@ -49,9 +37,13 @@ export default ({ currentCategory }) => {
         <header className={styles.header}>
             <div className={styles.innerWrapper}>
                 <a title="Home" href="/">
-                    <GatsbyImage
-                        image={logoImage.childImageSharp.gatsbyImageData}
+                    <StaticImage
+                        src="./me.jpg"
                         className={styles.logo}
+                        width={65}
+                        height={65}
+                        quality={90}
+                        layout="fixed"
                     />
                 </a>
                 <a title="Home" href="/" className={styles.headerText}>
