@@ -20,9 +20,7 @@ module.exports = {
             resolve: `gatsby-plugin-sharp`,
             options: {
                 defaults: {
-                    breakpoints: [
-                        750, 1080, 1366, 1500, 1920, 2160, 2732, 3840,
-                    ],
+                    breakpoints: [750, 1080, 1366, 1920, 2160, 3840],
                     placeholder: 'blurred',
                 },
             },
