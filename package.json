@@ -7,7 +7,7 @@
         "develop:drafts": "NODE_OPTIONS=--openssl-legacy-provider gatsby clean && BUILD_DRAFTS=true gatsby develop",
         "develop:treatDraftsAsPublished": "NODE_OPTIONS=--openssl-legacy-provider gatsby clean && TREAT_DRAFTS_AS_PUBLISHED=true gatsby develop",
         "docker:extractBuildCache": "./extract-cache-from-docker-build.sh",
-        "docker:build": "docker compose build",
+        "docker:build": "mkdir -p public && mkdir -p .cache && docker compose build",
         "docker:run": "docker compose up",
         "docker:push": "docker tag beley-blog:build docker.chrisbeley.com/main/beley-blog:latest && docker push docker.chrisbeley.com/main/beley-blog:latest"
     },
