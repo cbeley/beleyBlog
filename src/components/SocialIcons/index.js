@@ -7,7 +7,8 @@ import {
     FaFilePdf,
 } from 'react-icons/fa';
 
-import resumeLink from './Chris_Beley_Resume_3-3-23.pdf';
+import resumeLink from '~src/components/resume';
+
 import * as styles from './styles.module.css';
 
 export default () => {

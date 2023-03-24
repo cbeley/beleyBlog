@@ -1,9 +1,7 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 
-// Having my resume in my aboutMe is fairly temporary, so
-// keeping the resume file localized to social icons for now.
-import resumeLink from '~src/components/SocialIcons/Chris_Beley_Resume_3-3-23.pdf';
+import resumeLink from '~src/components/resume';
 import SocialIcons from '~src/components/SocialIcons';
 
 import * as styles from './styles.module.css';
