@@ -7,6 +7,7 @@ import {
     FaFilePdf,
 } from 'react-icons/fa';
 
+import resumeLink from './Chris_Beley_Resume_3-3-23.pdf';
 import * as styles from './styles.module.css';
 
 export default () => {
@@ -33,10 +34,7 @@ export default () => {
             <a title="Chris Beley's Github" href="https://github.com/cbeley">
                 <FaGithub className={styles.icon} />
             </a>
-            <a
-                title="Chris Beley's Resume"
-                href="/Chris_Beley_Resume_2-16-22.pdf"
-            >
+            <a title="Chris Beley's Resume" href={resumeLink}>
                 <FaFilePdf className={styles.icon} />
             </a>
         </aside>

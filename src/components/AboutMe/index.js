@@ -1,6 +1,9 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 
+// Having my resume in my aboutMe is fairly temporary, so
+// keeping the resume file localized to social icons for now.
+import resumeLink from '~src/components/SocialIcons/Chris_Beley_Resume_3-3-23.pdf';
 import SocialIcons from '~src/components/SocialIcons';
 
 import * as styles from './styles.module.css';
@@ -39,10 +42,7 @@ export default () => {
                 </a>{' '}
                 if you have something that may interest me. You can also
                 download a{' '}
-                <a
-                    href="/Chris_Beley_Resume_3-3-23.pdf"
-                    title="Chris Beley's Resume"
-                >
+                <a href={resumeLink} title="Chris Beley's Resume">
                     pdf version of my resume
                 </a>
                 .
