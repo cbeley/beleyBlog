@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    FaTwitter,
     FaLinkedin,
     FaGithub,
     FaInstagram,
@@ -14,12 +13,6 @@ import * as styles from './styles.module.css';
 export default () => {
     return (
         <aside className={styles.socialMediaIcons}>
-            <a
-                title="Chris Beley's Twitter"
-                href="https://twitter.com/Chris_Beley"
-            >
-                <FaTwitter className={styles.icon} />
-            </a>
             <a
                 title="Chris Beley's Instagram"
                 href="https://www.instagram.com/chrisbeley/"
